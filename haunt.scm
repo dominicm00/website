@@ -1,8 +1,41 @@
+;;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
+;;;
+;;; This program is free software; you can redistribute it and/or
+;;; modify it under the terms of the GNU General Public License as
+;;; published by the Free Software Foundation; either version 3 of the
+;;; License, or (at your option) any later version.
+;;;
+;;; This program is distributed in the hope that it will be useful, but WITHOUT
+;;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+;;; FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+;;; more details.
+;;;
+;;; You should have received a copy of the GNU General Public License along with
+;;; this program. If not, see <http://www.gnu.org/licenses/>.
+
 (use-modules (haunt asset)
              (haunt site)
+             (haunt post)
+
              (haunt builder blog)
              (haunt builder atom)
-             (haunt reader skribe))
+             (haunt builder assets)
+
+             (haunt reader skribe)
+
+             (theme)
+             (util))
+
+(define %dm/collections
+  `(("Recent Posts" "index.html" ,posts/reverse-chronological)))
+
+(define main-page
+  (%dm/static-page
+   "Dominic Martinez's Site"
+   "index.html"
+   `((h1 "About me")
+     (p "Some cool info")
+     ,(link "Posts" "/posts/index.html"))))
 
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"
@@ -10,6 +43,11 @@
       '((author . "Dominic Martinez")
         (email  . "dom@dominicm.dev"))
       #:readers (list skribe-reader)
-      #:builders (list (blog)
+      #:builders (list (blog
+                        #:theme %dm/blog-theme
+                        #:prefix "posts"
+                        #:collections %dm/collections)
                        (atom-feed)
-                       (atom-feeds-by-tag)))
+                       main-page
+                       (static-directory "assets")
+                       (static-directory "css")))
