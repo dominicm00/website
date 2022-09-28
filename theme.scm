@@ -15,6 +15,8 @@
 
 (define-module (theme)
   #:use-module (haunt builder blog)
+  #:use-module (haunt post)
+  #:use-module (srfi srfi-19)
   #:use-module (util))
 
 (define (%dm/layout site title body)
@@ -25,11 +27,30 @@
       (title ,title)
       ,(stylesheet "normalize")
       ,(stylesheet "dominicm"))
-     (body ,body))))
+     (body
+      (div
+       (@ (id "site-container"))
+       ,body)))))
+
+(define (%dm/collection site title posts prefix)
+  (define (post-uri post)
+    (string-append "/" (or prefix "") "/" (post-slug post)))
+
+  `((h1 (@ (id "collection-title"))
+        ,title)
+    ,@(map (lambda (post)
+             `(div
+               (@ (class "post-container"))
+               (a (@ (href ,(post-uri post)))
+                  (h2 ,(post-ref post 'title)))
+               (p ,(date->string (post-date post)
+                                 "~Y/~m/~d"))))
+           posts)))
 
 (define-public %dm/blog-theme
   (theme #:name "dominicm"
-         #:layout %dm/layout))
+         #:layout %dm/layout
+         #:collection-template %dm/collection))
 
 (define-public %dm/static-page
   (static-page-generator %dm/blog-theme))

@@ -47,12 +47,13 @@
 (define (link name uri)
   `(a (@ (href ,uri)) ,name))
 
-(define* (centered-image url #:optional alt)
-  `(img (@ (class "centered-image")
-           (src ,url)
-           ,@(if alt
-                 `((alt ,alt))
-                 '()))))
+(define* (image-generator class)
+  (lambda (uri alt)
+    `(img (@ (class ,class)
+             (src ,url)
+             ,@(if alt
+                   `((alt ,alt))
+                   '())))))
 
 (define (raw-snippet code)
   `(pre (code ,(if (string? code) code (read-string code)))))

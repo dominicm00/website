@@ -23,19 +23,14 @@
 
              (haunt reader skribe)
 
+             (pages main)
+
              (theme)
              (util))
 
 (define %dm/collections
   `(("Recent Posts" "index.html" ,posts/reverse-chronological)))
 
-(define main-page
-  (%dm/static-page
-   "Dominic Martinez's Site"
-   "index.html"
-   `((h1 "About me")
-     (p "Some cool info")
-     ,(link "Posts" "/posts/index.html"))))
 
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"
