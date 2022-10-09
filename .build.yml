@@ -6,7 +6,7 @@ packages:
   - guile
   - guile-reader
 environment:
-  site: dominicm.srht.site
+  site: dominicm.dev
 tasks:
   - package: |
       cd website
