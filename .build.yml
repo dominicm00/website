@@ -9,6 +9,7 @@ environment:
   site: dominicm.srht.site
 tasks:
   - package: |
+      cd website
       haunt build
       tar -cvz site > site.tar.gz
   - upload: |
