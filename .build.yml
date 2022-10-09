@@ -11,6 +11,6 @@ tasks:
   - package: |
       cd website
       haunt build
-      tar -cvz site > site.tar.gz
+      tar -cvz site > ../site.tar.gz
   - upload: |
       hut pages publish -d $site site.tar.gz
