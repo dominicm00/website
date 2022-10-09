@@ -22,6 +22,7 @@
 (define (%dm/layout site title body)
   `((doctype html)
     (html
+     (@ (lang "en"))
      (head
       (meta (@ (charset "utf-8")))
       (title ,title)
@@ -30,19 +31,24 @@
      (body
       (div
        (@ (id "site-container"))
-       ,body)))))
+       (main ,body)
+       (footer
+        (p "Made with "
+           ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
+           " - "
+           ,(link "Source code" "https://sr.ht/~dominicm/website"))))))))
 
 (define (%dm/collection site title posts prefix)
   (define (post-uri post)
-    (string-append "/" (or prefix "") "/" (post-slug post)))
+    (string-append "/" (or prefix "") "/" (post-slug post) ".html"))
 
   `((h1 (@ (id "collection-title"))
         ,title)
     ,@(map (lambda (post)
              `(div
                (@ (class "post-container"))
-               (a (@ (href ,(post-uri post)))
-                  (h2 ,(post-ref post 'title)))
+               (h2 ,(link (post-ref post 'title)
+                          (post-uri post)))
                (p ,(date->string (post-date post)
                                  "~Y/~m/~d"))))
            posts)))
@@ -52,5 +58,5 @@
          #:layout %dm/layout
          #:collection-template %dm/collection))
 
-(define-public %dm/static-page
+(define-public dm/static-page
   (static-page-generator %dm/blog-theme))

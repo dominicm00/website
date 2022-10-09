@@ -3,9 +3,22 @@
 }
 
 #site-container {
-  margin: auto;
-  padding: 20px 50px;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  padding: 20px;
   max-width: 500px;
+  flex-grow: 1;
+}
+
+footer {
+  color: #303030;
+  font-style: italic;
 }
 
 .post-container h2 {
@@ -16,4 +29,20 @@
 .post-container p {
   font-style: italic;
   margin-top: 3px;
+}
+
+h2 {
+  margin: 10px 0 5px 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 5px 0 15px 0;
+}
+
+.project {
+  margin-bottom: 10px;
 }
