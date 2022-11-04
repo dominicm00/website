@@ -1,3 +1,7 @@
+; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
+;
+; SPDX-License-Identifier: CC-BY-SA-4.0
+
 (post
  :title "Hello, World!"
  :date (make-date* 2015 10 15)
