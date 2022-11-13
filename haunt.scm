@@ -13,13 +13,13 @@
 
              (haunt reader skribe)
 
-             (pages main)
+             (pages about)
 
              (theme)
              (util))
 
 (define %dm/collections
-  `(("Recent Posts" "index.html" ,posts/reverse-chronological)))
+  `(("Posts" "index.html" ,posts/reverse-chronological)))
 
 
 (site #:title "Dominic's Website"
@@ -30,10 +30,9 @@
       #:readers (list skribe-reader)
       #:builders (list (blog
                         #:theme %dm/blog-theme
-                        #:prefix "posts"
                         #:collections %dm/collections)
                        (atom-feed)
-                       main-page
+                       about-page
                        (static-directory "assets")
                        (static-directory "css")
                        (static-directory ".well-known")))

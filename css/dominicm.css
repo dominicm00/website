@@ -4,21 +4,74 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+:root {
+  /* Taken from the Monokai Pro theme */
+  --syntax-bg: #2d2a2e;
+  --syntax-fg: #fcfcfa;
+  --syntax-gray: #727072;
+  --syntax-yellow: #ffd866;
+  --syntax-violet: #ab9df2;
+  --syntax-magenta: #ff6188;
+  --syntax-blue: #78dce8;
+  --syntax-green: #a9dc76;
+
+  --max-width: 700px;
+}
+
 * {
   font-family: sans-serif;
 }
 
-#site-container {
+body {
   width: 100vw;
+}
+
+#site-container {
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+nav {
+  padding: 10px;
+  width: 100%;
+  max-width: var(--max-width);
+  border-bottom: solid #f0f0f0 1px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+nav li:first-child {
+  padding-left: 0;
+}
+
+nav li {
+  display: inline;
+  padding: 10px;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1px;
+  font-style: italic;
+}
+
+nav a:hover {
+  color: #0000cd;
+}
+
 main {
-  padding: 20px;
-  max-width: 500px;
+  width: 100%;
+  max-width: var(--max-width);
   flex-grow: 1;
 }
 
@@ -51,4 +104,64 @@ p {
 
 .project {
   margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+}
+
+figcaption {
+  font-style: italic;
+  color: #303030;
+  text-align: center;
+}
+
+/* Syntax Highlighting */
+
+code,
+code * {
+  font-family: monospace, monospace;
+}
+
+code.inline-code {
+  background-color: var(--syntax-bg);
+  color: var(--syntax-fg);
+  border-radius: 3px;
+  padding: 0px 3px;
+}
+
+pre {
+  background-color: var(--syntax-bg);
+  color: var(--syntax-fg);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.syntax-string,
+.syntax-doc-comment {
+  color: var(--syntax-yellow);
+}
+
+.syntax-keyword,
+.syntax-special,
+.syntax-attribute,
+.syntax-operator {
+  color: var(--syntax-magenta);
+  font-weight: bold;
+}
+
+.syntax-constant {
+  color: var(--syntax-violet);
+}
+
+.syntax-type {
+  color: var(--syntax-blue);
+}
+
+.syntax-comment {
+  color: var(--syntax-gray);
+}
+
+.syntax-function {
+  color: var(--syntax-green);
 }

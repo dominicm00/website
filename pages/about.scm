@@ -3,7 +3,7 @@
 ;
 ; SPDX-License-Identifier: GPL-3.0-or-later
 
-(define-module (pages main)
+(define-module (pages about)
   #:use-module (theme)
   #:use-module (util))
 
@@ -13,15 +13,15 @@
      (h3 ,(link title uri))
      (p ,description))))
 
-(define-public main-page
+(define-public about-page
   (dm/static-page
-   "Dominic Martinez's Site"
-   "index.html"
+   "About Dominic Martinez"
+   "about.html"
    `((h1 "Dominic Martinez")
 
      (h2 "About me")
-     (p "I'm a developer interested in creating effective and ethical software. If you
-ever want to chat, my inbox is always open.")
+     (p "I'm a university student and developer interested in creating effective and
+ethical software. If you ever want to chat, my inbox is always open.")
 
      (h2 "Projects")
      ,(project

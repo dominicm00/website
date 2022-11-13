@@ -18,11 +18,21 @@
       (meta (@ (name "viewport")
                (content "width=device-width, initial-scale=1")))
       (title ,title)
+      (link (@ (rel "shortcut icon")
+               (type "image/png")
+               (href "/assets/images/profile-picture-128.png")))
+      (link (@ (rel "apple-touch-icon-precomposed")
+               (type "image/png")
+               (href "/assets/images/profile-picture-128.png")))
       ,(stylesheet "normalize")
       ,(stylesheet "dominicm"))
      (body
       (div
        (@ (id "site-container"))
+       (nav
+        (ul
+         (li ,(link "About" "/about.html"))
+         (li ,(link "Posts" "/"))))
        (main ,body)
        (footer
         (p "Made with "
@@ -32,7 +42,7 @@
 
 (define (%dm/collection site title posts prefix)
   (define (post-uri post)
-    (string-append "/" (or prefix "") "/" (post-slug post) ".html"))
+    (string-append (if prefix "/" "") (or prefix "") "/" (post-slug post) ".html"))
 
   `((h1 (@ (id "collection-title"))
         ,title)
