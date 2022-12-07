@@ -35,4 +35,5 @@
                        (atom-feed)
                        main-page
                        (static-directory "assets")
-                       (static-directory "css")))
+                       (static-directory "css")
+                       (static-directory ".well-known")))
