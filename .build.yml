@@ -6,15 +6,12 @@ image: guix
 oauth: pages.sr.ht/PAGES:RW
 packages:
   - hut
-  - haunt
-  - guile
-  - guile-reader
 environment:
   site: dominicm.dev
 tasks:
   - package: |
       cd website
-      haunt build
+      guix shell -m manifest.scm -- haunt build
       cd site
       tar -cvz * .well-known > ../../site.tar.gz
   - upload: |
