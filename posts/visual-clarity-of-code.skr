@@ -219,8 +219,9 @@ wide-ranging as Rust and SML can all use ,(link "LLVM" "https://llvm.org/").])
 (p [Intermediate representations are very lossy by design, but we can have
 something between the two extremes. The closer in design languages are, the more
 information they can share. Maybe we can't have a runtime debugger for compiled
-languages, but we probably could for all dynamic ones. Assembly inspection
-doesn't make sense for Python but it does in everything from C to Common Lisp.])
+languages, but we probably could for all dynamic ones. Inspecting generated
+assembly doesn't make sense for Python but it does in everything from C to
+Common Lisp.])
 
 (p [Everytime we start a new language, we start at almost a blank slate.
 Debugging, editing, profiling, introspection, toolkits, package management;
