@@ -14,113 +14,47 @@
   --syntax-magenta: #ff6188;
   --syntax-blue: #78dce8;
   --syntax-green: #a9dc76;
-
-  --max-width: 700px;
-}
-
-* {
-  font-family: sans-serif;
-}
-
-body {
-  width: 100vw;
-}
-
-#site-container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-nav {
-  padding: 10px;
-  width: 100%;
-  max-width: var(--max-width);
-  border-bottom: solid #f0f0f0 1px;
-}
-
-nav ul {
-  list-style-type: none;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-nav li:first-child {
-  padding-left: 0;
-}
-
-nav li {
-  display: inline;
-  padding: 10px;
-}
-
-nav a {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  padding: 1px;
-  font-style: italic;
-}
-
-nav a:hover {
-  color: #0000cd;
-}
-
-main {
-  width: 100%;
-  max-width: var(--max-width);
-  flex-grow: 1;
 }
 
 footer {
-  color: #303030;
   font-style: italic;
 }
 
-.post-container h2 {
-  margin-bottom: 5px;
+body > header {
+  padding-bottom: 0;
+}
+
+.post h2,
+.project h2 {
   font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
 }
 
-.post-container p {
+.post p {
   font-style: italic;
-  margin-top: 3px;
+  margin-top: 0.3rem;
 }
 
-h2 {
-  margin: 10px 0 5px 0;
-}
-
+#about h2,
 h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#about p {
   margin: 0;
 }
 
-p {
-  margin: 5px 0 15px 0;
-}
-
-.project {
-  margin-bottom: 10px;
-}
-
-img {
-  max-width: 100%;
-}
-
-figcaption {
-  font-style: italic;
-  color: #303030;
-  text-align: center;
+#collection-title {
+  margin-bottom: 1rem;
 }
 
 /* Syntax Highlighting */
 
-code,
-code * {
+pre code,
+pre code * {
   font-family: monospace, monospace;
+  color: var(--syntax-fg);
 }
 
 code.inline-code {
@@ -132,7 +66,6 @@ code.inline-code {
 
 pre {
   background-color: var(--syntax-bg);
-  color: var(--syntax-fg);
   padding: 15px;
   border-radius: 5px;
 }

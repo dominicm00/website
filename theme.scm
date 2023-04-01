@@ -24,21 +24,21 @@
       (link (@ (rel "apple-touch-icon-precomposed")
                (type "image/png")
                (href "/assets/images/profile-picture-128.png")))
-      ,(stylesheet "normalize")
+      ,(stylesheet "simple")
       ,(stylesheet "dominicm"))
      (body
-      (div
-       (@ (id "site-container"))
+      (header
        (nav
-        (ul
-         (li ,(link "About" "/about.html"))
-         (li ,(link "Posts" "/"))))
-       (main ,body)
-       (footer
-        (p "Made with "
-           ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
-           " - "
-           ,(link "Source code" "https://sr.ht/~dominicm/website"))))))))
+        ,(link "About" "/about.html")
+        ,(link "Posts" "/"))))
+     (main ,body)
+     (footer
+      (p "Made with "
+         ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
+	 ", "
+	 ,(link "Simple.css" "https://simplecss.org/")
+         " - "
+         ,(link "Source code" "https://sr.ht/~dominicm/website"))))))
 
 (define (%dm/collection site title posts prefix)
   (define (post-uri post)
@@ -48,7 +48,7 @@
         ,title)
     ,@(map (lambda (post)
              `(div
-               (@ (class "post-container"))
+               (@ (class "post"))
                (h2 ,(link (post-ref post 'title)
                           (post-uri post)))
                (p ,(date->string (post-date post)
