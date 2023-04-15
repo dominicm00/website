@@ -12,7 +12,7 @@
 
 ;; Install git hooks
 (if (file-exists? ".git/")
-    (copy-file ".pre-commit-hook" ".git/hooks/pre-commit"))
+    (copy-file ".pre-commit-hook.sh" ".git/hooks/pre-commit"))
 
 (packages->manifest
  (list guile-syntax-highlight haunt guile-3.0-latest guile-reader reuse))
