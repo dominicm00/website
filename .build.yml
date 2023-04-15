@@ -9,6 +9,8 @@ packages:
 environment:
   site: dominicm.dev
 tasks:
+  - check: |
+      guix shell -m manifest.scm -- reuse lint
   - package: |
       cd website
       guix shell -m manifest.scm -- haunt build
