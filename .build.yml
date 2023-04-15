@@ -6,11 +6,13 @@ image: guix
 oauth: pages.sr.ht/PAGES:RW
 packages:
   - hut
+  - reuse
 environment:
   site: dominicm.dev
 tasks:
   - check: |
-      guix shell -m manifest.scm -- reuse lint
+      cd website
+      reuse lint
   - package: |
       cd website
       guix shell -m manifest.scm -- haunt build
