@@ -1,0 +1,8 @@
+#!/bin/sh
+TMPDIR=$(mktemp -d)/
+git checkout-index --prefix=$TMPDIR -af
+cd $TMPDIR
+
+guix shell -m manifest.scm -- reuse lint || exit 1
+
+rm -rf $TMPDIR
