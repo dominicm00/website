@@ -33,12 +33,14 @@
         ,(link "Posts" "/"))))
      (main ,body)
      (footer
-      (p "Made with "
-         ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
-	 ", "
-	 ,(link "Simple.css" "https://simplecss.org/")
-         " - "
-         ,(link "Source code" "https://sr.ht/~dominicm/website"))))))
+      (p
+       ,(link "RSS feed" "/feed.xml")
+       ". Made with "
+       ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
+       ", "
+       ,(link "Simple.css" "https://simplecss.org/")
+       " - "
+       ,(link "Source code" "https://sr.ht/~dominicm/website"))))))
 
 (define (%dm/collection site title posts prefix)
   (define (post-uri post)
