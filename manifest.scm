@@ -13,7 +13,6 @@
 ;; Install git hooks
 (if (file-exists? ".git/")
     (begin
-      (mkdir ".git/hooks")
       (copy-file ".pre-commit-hook.sh" ".git/hooks/pre-commit")))
 
 (packages->manifest

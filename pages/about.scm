@@ -1,7 +1,7 @@
-; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
-; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: GPL-3.0-or-later
+;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
+;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 (define-module (pages about)
   #:use-module (theme)
@@ -13,8 +13,9 @@
      (h2 ,(link title uri))
      (p ,description))))
 
-(define-public about-page
+(define-public (about-me site)
   (dm/static-page
+   site
    "About Dominic Martinez"
    "about.html"
    `((div
@@ -29,9 +30,9 @@ email is always open.")
 
       (h2 "Projects")
       ,(project
-	"Ham"
-	"https://sr.ht/~dominicm/ham"
-	"A modern replacement for the Perforce Jam C/C++ build system")
+	    "Ham"
+	    "https://sr.ht/~dominicm/ham"
+	    "A modern replacement for the Perforce Jam C/C++ build system")
 
       (h2 "Contact me")
       ,(link "dom@dominicm.dev" "mailto:dom@dominicm.dev")

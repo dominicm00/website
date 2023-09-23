@@ -29,8 +29,9 @@
      (body
       (header
        (nav
-        ,(link "About" "/about.html")
-        ,(link "Posts" "/"))))
+        ,(link "Home" "/")
+        ,(link "Essays" "/essays.html")
+	,(link "Notes" "/notes.html"))))
      (main ,body)
      (footer
       (p

@@ -1,12 +1,13 @@
-; Copyright © 2018-2021 David Thompson <davet@gnu.org>
-; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
-; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: GPL-3.0-or-later
+;; Copyright © 2018-2021 David Thompson <davet@gnu.org>
+;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
+;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 (define-module (util)
   #:use-module (ice-9 rdelim)
   #:use-module (srfi srfi-19)
+  #:use-module (srfi srfi-171)
   #:use-module (haunt artifact)
   #:use-module (haunt builder blog)
   #:use-module (haunt html)
@@ -16,7 +17,8 @@
             link
             centered-image
             raw-snippet
-            static-page-generator)
+            static-page-generator
+            flatten)
   #:replace (link))
 
 (define (date year month day)
@@ -46,8 +48,10 @@
   `(pre (code ,(if (string? code) code (read-string code)))))
 
 (define (static-page-generator theme)
-  (lambda (title file-name body)
-    (lambda (site posts)
-      (serialized-artifact file-name
-                           (with-layout theme site title body)
-                           sxml->html))))
+  (lambda (site title file-name body)
+    (serialized-artifact file-name
+                         (with-layout theme site title body)
+                         sxml->html)))
+
+(define (flatten l)
+  (list-transduce tflatten rcons l))
