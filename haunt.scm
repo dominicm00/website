@@ -1,12 +1,12 @@
-; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
-; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: GPL-3.0-or-later
+;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
+;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 (use-modules (haunt asset)
              (haunt site)
 
-             (haunt reader skribe)
+             (haunt reader commonmark)
 
              (builder)
              (util))
@@ -16,5 +16,5 @@
       #:default-metadata
       '((author . "Dominic Martinez")
         (email  . "dom@dominicm.dev"))
-      #:readers (list skribe-reader)
+      #:readers (list commonmark-reader)
       #:builders (list builder))

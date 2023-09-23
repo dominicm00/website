@@ -6,11 +6,13 @@
 
 (define-module (util)
   #:use-module (ice-9 rdelim)
+  #:use-module (ice-9 curried-definitions)
   #:use-module (srfi srfi-19)
   #:use-module (srfi srfi-171)
   #:use-module (haunt artifact)
   #:use-module (haunt builder blog)
   #:use-module (haunt html)
+  #:use-module (haunt post)
   #:export (date
             stylesheet
             anchor
@@ -18,7 +20,9 @@
             centered-image
             raw-snippet
             static-page-generator
-            flatten)
+            flatten
+            essay-posts
+            note-posts)
   #:replace (link))
 
 (define (date year month day)
@@ -55,3 +59,6 @@
 
 (define (flatten l)
   (list-transduce tflatten rcons l))
+
+(define (essay-posts posts) (assoc-ref (posts/group-by-tag posts) "essay"))
+(define (note-posts posts) (assoc-ref (posts/group-by-tag posts) "note"))

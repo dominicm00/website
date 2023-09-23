@@ -6,6 +6,7 @@
 (define-module (pages home)
   #:use-module (theme)
   #:use-module (util)
+  #:use-module (oop goops)
   #:use-module (haunt post))
 
 (define-public (home-page site posts)
@@ -15,15 +16,26 @@
    "index.html"
    `((div
       (@ (id "home"))
-      (h1 "Dominic Martinez")
+      (h1 "Welcome!")
+      (p "I'm Dominic, a student and developer focused on making open, flexible, and
+friendly tools.")
+      ,(link "more about me" "/about.html")
 
-      (h2 "Hoooome")
-      (p "Welcome! I'm a university student and developer making open, user-centric
-software. I'm particularly interested in tools for thought,
-programming languages, and operating systems. If you want to chat my
-email is always open.")
-
+      (h2 "Essays")
+      (p "An ever-evolving set of my current ideas and beliefs")
       ,(map (lambda (post)
-              `(h2 ,(link (post-ref post 'title)
-                          (post-slug post))))
-            posts)))))
+              `(div
+                (h2 ,(link (post-ref post 'title)
+                           (post-slug post)))
+                (p ,(post-ref post 'summary))))
+            (essay-posts posts))
+
+      (h2 "Notes")
+      (p "My unpolished thoughts and experiences")
+      ,(map (lambda (post)
+              `(div
+                (h2 ,(link (post-ref post 'title)
+                           (post-slug post)))
+                (p ,(post-ref post 'summary))))
+            (note-posts posts))
+      ))))
