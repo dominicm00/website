@@ -9,33 +9,38 @@
   #:use-module (oop goops)
   #:use-module (haunt post))
 
+(define (post-list posts)
+  (map (lambda (post)
+         `(div
+           (h3 (@ (class "post-link"))
+               ,(link (post-ref post 'title)
+                      (post-slug post)))
+           (p (@ (class "post-summary"))
+              ,(post-ref post 'summary))))
+       posts))
+
 (define-public (home-page site posts)
   (dm/static-page
    site
    "Home"
    "index.html"
    `((div
-      (@ (id "home"))
+      (@ (class "home"))
       (h1 "Welcome!")
-      (p "I'm Dominic, a student and developer focused on making open, flexible, and
-friendly tools.")
-      ,(link "more about me" "/about.html")
+      (p (@ (id "home-intro"))
+         "I'm Dominic, a student and developer focused on making open,
+ flexible, and friendly tools.")
+      ,(link "→ more about me" "/about.html")
 
-      (h2 "Essays")
-      (p "An ever-evolving set of my current ideas and beliefs")
-      ,(map (lambda (post)
-              `(div
-                (h2 ,(link (post-ref post 'title)
-                           (post-slug post)))
-                (p ,(post-ref post 'summary))))
-            (essay-posts posts))
+      (h2 (@ (class "post-type-header")) "Essays")
+      (p (@ (class "post-type-description"))
+         "An ever-evolving set of my current ideas and beliefs")
+      ,(post-list (essay-posts posts))
+      ,(link "→ see all essays" "/essays.html")
 
-      (h2 "Notes")
-      (p "My unpolished thoughts and experiences")
-      ,(map (lambda (post)
-              `(div
-                (h2 ,(link (post-ref post 'title)
-                           (post-slug post)))
-                (p ,(post-ref post 'summary))))
-            (note-posts posts))
+      (h2 (@ (class "post-type-header")) "Notes")
+      (p (@ (class "post-type-description"))
+         "My unpolished thoughts and experiences")
+      ,(post-list (note-posts posts))
+      ,(link "→ see all notes" "/notes.html")
       ))))

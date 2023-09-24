@@ -6,6 +6,7 @@
 (use-modules (haunt asset)
              (haunt site)
 
+             (haunt builder assets)
              (haunt reader commonmark)
 
              (builder)
@@ -17,4 +18,9 @@
       '((author . "Dominic Martinez")
         (email  . "dom@dominicm.dev"))
       #:readers (list commonmark-reader)
-      #:builders (list builder))
+      #:builders
+      (list
+       builder
+       (static-directory "assets")
+       (static-directory "css")
+       (static-directory ".well-known")))

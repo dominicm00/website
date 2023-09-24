@@ -16,6 +16,55 @@
   --syntax-green: #a9dc76;
 }
 
+/*** Home page ***/
+.home h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.home .post-type-header {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.home .post-type-header {
+  margin-top: 2.5rem;
+}
+
+.home a {
+  font-size: 1.4rem;
+}
+
+.home p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+#home-intro {
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+p.post-type-description {
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+p.post-summary {
+  color: var(--text-light);
+}
+
+.post-link {
+  margin: 0;
+  font-weight: normal;
+}
+
+.post-link > a {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
 footer {
   font-style: italic;
 }
