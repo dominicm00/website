@@ -28,17 +28,9 @@ software. I'm particularly interested in tools for thought, programming
 languages, and operating systems. Feel free to chat with me over email or
 Fediverse!")
 
-      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-      ;; (h2 "Projects")                                                   ;;
-      ;; ,(project                                                         ;;
-      ;;   "Ham"                                                           ;;
-      ;;   "https://sr.ht/~dominicm/ham"                                   ;;
-      ;;   "A modern replacement for the Perforce Jam C/C++ build system") ;;
-      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
       (h2 "Contact me")
       ,(link "dom@dominicm.dev" "mailto:dom@dominicm.dev")
       (br)
-      (a (@ (rel "me") (href "https://firefish.social/@dominicm")) "Fediverse")
+      (a (@ (rel "me") (href "https://alpha.polymaths.social/@dominicm")) "Fediverse")
       (br)
       ,(link "PGP key" "https://meta.sr.ht/~dominicm.pgp")))))

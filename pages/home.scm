@@ -14,7 +14,7 @@
    "Home"
    "index.html"
    `((div
-      (@ (class "home"))
+      (@ (id "home"))
       (h1 "Welcome!")
       (p (@ (id "home-intro"))
          "I'm Dominic, a student and developer focused on making open,

@@ -38,8 +38,7 @@
      (main ,body)
      (footer
       (p
-       ,(link "RSS feed" "/feed.xml")
-       ". Made with "
+       "Made with "
        ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
        ", "
        ,(link "Simple.css" "https://simplecss.org/")
@@ -51,7 +50,7 @@
      ,@(map (lambda (post)
               `((h3 (@ (class "post-link"))
                  ,(link (post-ref post 'title)
-                        (post-slug post)))
+                        (string-append (post-slug post) ".html")))
                 (p (@ (class "post-summary"))
                    ,(post-ref post 'summary))))
             posts))))
