@@ -5,12 +5,20 @@
 
 (use-modules (haunt asset)
              (haunt site)
+             (haunt post)
 
              (haunt builder assets)
+             (haunt builder blog)
+             (haunt builder atom)
              (haunt reader commonmark)
 
              (builder)
-             (util))
+             (util)
+             (theme))
+
+(define %collections
+  `(("Essays" "essays.html" ,(compose posts/reverse-chronological essay-posts))
+    ("Notes" "notes.html" ,(compose posts/reverse-chronological note-posts))))
 
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"
@@ -20,7 +28,8 @@
       #:readers (list commonmark-reader)
       #:builders
       (list
-       builder
+       static-pages
+       (blog #:theme %dm/blog-theme #:collections %collections)
        (static-directory "assets")
        (static-directory "css")
        (static-directory ".well-known")))

@@ -6,18 +6,7 @@
 (define-module (pages home)
   #:use-module (theme)
   #:use-module (util)
-  #:use-module (oop goops)
   #:use-module (haunt post))
-
-(define (post-list posts)
-  (map (lambda (post)
-         `(div
-           (h3 (@ (class "post-link"))
-               ,(link (post-ref post 'title)
-                      (post-slug post)))
-           (p (@ (class "post-summary"))
-              ,(post-ref post 'summary))))
-       posts))
 
 (define-public (home-page site posts)
   (dm/static-page

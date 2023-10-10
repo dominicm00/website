@@ -24,15 +24,17 @@
 
       (h2 "About me")
       (p "Welcome! I'm a university student and developer making open, user-centric
-software. I'm particularly interested in tools for thought,
-programming languages, and operating systems. If you want to chat my
-email is always open.")
+software. I'm particularly interested in tools for thought, programming
+languages, and operating systems. Feel free to chat with me over email or
+Fediverse!")
 
-      (h2 "Projects")
-      ,(project
-	    "Ham"
-	    "https://sr.ht/~dominicm/ham"
-	    "A modern replacement for the Perforce Jam C/C++ build system")
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+      ;; (h2 "Projects")                                                   ;;
+      ;; ,(project                                                         ;;
+      ;;   "Ham"                                                           ;;
+      ;;   "https://sr.ht/~dominicm/ham"                                   ;;
+      ;;   "A modern replacement for the Perforce Jam C/C++ build system") ;;
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
       (h2 "Contact me")
       ,(link "dom@dominicm.dev" "mailto:dom@dominicm.dev")

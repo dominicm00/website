@@ -5,6 +5,10 @@
  */
 
 :root {
+  /* Use system default fonts */
+  --sans-font: sans-serif;
+  --mono-font: monospace;
+
   /* Taken from the Monokai Pro theme */
   --syntax-bg: #2d2a2e;
   --syntax-fg: #fcfcfa;
@@ -16,6 +20,45 @@
   --syntax-green: #a9dc76;
 }
 
+/* Header */
+body > header {
+  background-color: inherit;
+  border: none;
+  grid-column: 2;
+  padding: 0;
+}
+
+header > nav {
+  display: flex;
+  align-items: center;
+}
+
+nav:nth-child(2) {
+  grid-column-start: 2;
+}
+
+nav > #home-link {
+  justify-self: start;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+nav > #home-link > img {
+  width: 40px;
+}
+
+header > nav > a {
+  border: none;
+  font-size: 1.25rem;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
 /*** Home page ***/
 .home h1 {
   font-size: 2rem;
@@ -24,7 +67,6 @@
 
 .home .post-type-header {
   font-size: 2rem;
-  margin-bottom: 5px;
 }
 
 .home .post-type-header {
@@ -35,7 +77,7 @@
   font-size: 1.4rem;
 }
 
-.home p {
+.home p, .collection p {
   margin-top: 0;
   margin-bottom: 5px;
 }
@@ -55,12 +97,12 @@ p.post-summary {
   color: var(--text-light);
 }
 
-.post-link {
+.collection > .post-link {
   margin: 0;
   font-weight: normal;
 }
 
-.post-link > a {
+.collection > .post-link > a {
   font-size: 1.5rem;
   text-decoration: none;
 }

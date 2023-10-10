@@ -1,7 +1,7 @@
-; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
-; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: GPL-3.0-or-later
+;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
+;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 (define-module (posts)
   #:use-module (syntax-highlight))
