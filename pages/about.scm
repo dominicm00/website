@@ -18,7 +18,7 @@
    site
    "About Dominic Martinez"
    "about.html"
-   `((div
+   `((main
       (@ (id "about"))
       (h1 "Dominic Martinez")
 

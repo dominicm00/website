@@ -20,7 +20,7 @@
       (title ,title)
       (link (@ (rel "shortcut icon")
                (type "image/png")
-               (href "/assets/images/profile-pictur-128.png")))
+               (href "/assets/images/profile-picture-128.png")))
       (link (@ (rel "apple-touch-icon-precomposed")
                (type "image/png")
                (href "/assets/images/profile-picture-128.png")))
@@ -33,17 +33,20 @@
         (a (@ (href "/") (id "home-link"))
            (img (@ (src "/assets/images/profile-picture-128.png")
                    (alt "Home"))))
+        ,(link "About me" "/about.html")
         ,(link "Essays" "/essays.html")
-        ,(link "Notes" "/notes.html"))))
-     (main ,body)
-     (footer
-      (p
-       "Made with "
-       ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
-       ", "
-       ,(link "Simple.css" "https://simplecss.org/")
-       " - "
-       ,(link "Source code" "https://sr.ht/~dominicm/website"))))))
+        ,(link "Notes" "/notes.html")))
+
+      ,body
+
+      (footer
+       (p
+        "Made with "
+        ,(link "Haunt" "https://dthompson.us/projects/haunt.html")
+        ", "
+        ,(link "Simple.css" "https://simplecss.org/")
+        " - "
+        ,(link "Source code" "https://sr.ht/~dominicm/website")))))))
 
 (define-public (post-list posts)
   `((div (@ (class "collection"))
@@ -55,14 +58,21 @@
                    ,(post-ref post 'summary))))
             posts))))
 
+(define-public (post-template post)
+  `((main (@ (class "post"))
+     (h1 ,(post-ref post 'title))
+     ,(post-sxml post))))
+
 (define-public (%dm/collection site title posts prefix)
-  `((h1 (@ (id "collection-title"))
-     ,title)
-    ,(post-list posts)))
+  `((main
+     (h1 (@ (id "collection-title"))
+         ,title)
+     ,(post-list posts))))
 
 (define-public %dm/blog-theme
   (theme #:name "dominicm"
          #:layout %dm/layout
+         #:post-template post-template
          #:collection-template %dm/collection))
 
 (define-public dm/static-page

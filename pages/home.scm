@@ -13,7 +13,7 @@
    site
    "Home"
    "index.html"
-   `((div
+   `((main
       (@ (id "home"))
       (h1 "Welcome!")
       (p (@ (id "home-intro"))

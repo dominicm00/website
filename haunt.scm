@@ -10,10 +10,10 @@
              (haunt builder assets)
              (haunt builder blog)
              (haunt builder atom)
-             (haunt reader commonmark)
 
              (builder)
              (util)
+             (posts)
              (theme))
 
 (define %collections
@@ -25,7 +25,7 @@
       #:default-metadata
       '((author . "Dominic Martinez")
         (email  . "dom@dominicm.dev"))
-      #:readers (list commonmark-reader)
+      #:readers (list modified-commonmark-reader)
       #:builders
       (list
        static-pages
