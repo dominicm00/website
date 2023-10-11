@@ -1,5 +1,6 @@
 title: Note post!
 summary: This is the note summary
+date: 2016-08-20 12:00
 tags: note
 ---
 

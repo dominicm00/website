@@ -1,5 +1,6 @@
 title: Essay post!
 summary: This is the essay summary
+date: 2016-08-20 12:00
 tags: essay
 ---
 
