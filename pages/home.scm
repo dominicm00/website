@@ -30,7 +30,10 @@
               (p (@ (class "post-type-description"))
                  "What I'm thinking about right now")
               ,(post-list thoughts)
-              ,(link "→ see all thoughts" "/thoughts.html")))
+
+              ;; XXX: Re-enable link at >3 thoughts
+              ;; ,(link "→ see all thoughts" "/thoughts.html")
+              ))
 
       ,@(if (null? ramblings)
             '()
@@ -38,5 +41,8 @@
               (p (@ (class "post-type-description"))
                  "Unpolished experiences and ideas")
               ,(post-list ramblings)
-              ,(link "→ see all ramblings" "/ramblings.html")))
+
+              ;; XXX: Re-enable link at >3 ramblings
+              ;; ,(link "→ see all ramblings" "/ramblings.html")
+              ))
       ))))

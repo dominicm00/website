@@ -119,10 +119,22 @@ p.post-summary {
 .collection > .post-link {
   margin-top: 1.5rem;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+}
+
+.collection > .post-link:first-child {
+  margin-top: 1rem;
 }
 
 .collection > .post-link > a {
   font-size: 1.5rem;
+}
+
+.collection > .post-link > img {
+  display: inline-block;
+  height: 2rem;
+  padding-right: 7px;
 }
 
 footer {
@@ -135,17 +147,9 @@ footer {
 
 p.thought-stage {
   font-size: 1rem;
-  display: flex;
-  align-items: center;
   font-style: italic;
   margin: 5px 0 0 0;
   color: var(--text-light);
-}
-
-p.thought-stage img {
-  display: inline-block;
-  height: 1rem;
-  padding-right: 7px;
 }
 
 .tooltip {

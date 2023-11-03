@@ -7,12 +7,24 @@
   #:use-module (haunt builder blog)
   #:use-module (haunt post)
   #:use-module (srfi srfi-19)
+  #:use-module (srfi srfi-9)
   #:use-module (ice-9 match)
   #:use-module (util))
 
+(define-record-type <stage>
+  (make-stage tag name description image alt)
+  stage?
+  (name stage-name)
+  (tag stage-tag)
+  (description stage-description)
+  (image stage-image)
+  (alt stage-alt))
+
+;; Association list of tag names to stages
 (define %thought-stages
-  `(("nebulous" "Nebulous" #f "/assets/images/profile-picture-128.png" "Nebula")
-    ("fusing" "Fusing" #f "/assets/images/profile-picture-128.png" "Fusing blue star")))
+  (map (lambda (args) (cons (car args) (apply make-stage args)))
+       `(("nebulous" "Nebulous" #f "/assets/images/nebulous-256.png" "Nebula")
+         ("fusing" "Fusing" #f "/assets/images/fusing-256.png" "Fusing blue star"))))
 
 (define (layout site title body)
   `((doctype html)
@@ -54,30 +66,38 @@
         ,(link "Source code" "https://sr.ht/~dominicm/website")))))))
 
 (define (stage-blurb stage)
-  (define stage-info (assoc stage %thought-stages))
-
-  (match stage-info
-    ((tag title description image alt)
-     `((p (@ (class "thought-stage"))
-        (img (@ (src ,image) (alt ,alt)))
-        ,(if description
-             (string-append title ": " description)
-             title))))))
+  (let ((name (stage-name stage))
+        (description (stage-description stage)))
+    `((p (@ (class "thought-stage"))
+       ,(if description
+            (string-append name ": " description)
+            name)))))
 
 (define-public (post-list posts)
+  (define (post-blurb post)
+    (let* ((stage-name (post-ref post 'stage))
+           (stage (if stage-name
+                      (assoc-ref %thought-stages stage-name)
+                      #f))
+           (title (post-ref post 'title))
+           (summary (post-ref post 'summary))
+           (post-url (string-append (post-slug post) ".html")))
+
+      `((h3 (@ (class "post-link"))
+         ,@(if stage
+               `((image (@ (src ,(stage-image stage))
+                           (alt ,(stage-alt stage)))))
+               '())
+         ,(link title post-url))
+
+        ,@(if stage
+              (stage-blurb stage)
+              '())
+
+        (p (@ (class "post-summary")) ,summary))))
+
   `((div (@ (class "collection"))
-     ,@(map (lambda (post)
-              `((h3 (@ (class "post-link"))
-                 ,(link (post-ref post 'title)
-                        (string-append (post-slug post) ".html")))
-
-                ,@(if (post-ref post 'stage)
-                      (stage-blurb (post-ref post 'stage))
-                      '())
-
-                (p (@ (class "post-summary"))
-                   ,(post-ref post 'summary))))
-            posts))))
+     ,@(map post-blurb posts))))
 
 (define-public (post-template post)
   `((main (@ (class "post"))

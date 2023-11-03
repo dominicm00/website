@@ -17,8 +17,8 @@
              (theme))
 
 (define %collections
-  `(("Thoughts" "thoughts.html" ,(compose posts/reverse-chronological thought-posts))
-    ("Ramblings" "ramblings.html" ,(compose posts/reverse-chronological rambling-posts))))
+  `(("Thoughts" "thoughts.html" ,thought-posts)
+    ("Ramblings" "ramblings.html" ,rambling-posts)))
 
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"

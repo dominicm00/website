@@ -66,8 +66,10 @@
     (or (assoc-ref (posts/group-by-tag posts) tag)
         '())))
 
-(define thought-posts (tag-filter-generator "thought"))
-(define rambling-posts (tag-filter-generator "rambling"))
+(define thought-posts (compose posts/reverse-chronological
+                               (tag-filter-generator "thought")))
+(define rambling-posts (compose posts/reverse-chronological
+                                (tag-filter-generator "rambling")))
 
 (define (post-has-tag post tag)
   (member tag (post-ref post 'tags)))
