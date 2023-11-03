@@ -21,8 +21,9 @@
             raw-snippet
             static-page-generator
             flatten
-            essay-posts
-            note-posts)
+            thought-posts
+            rambling-posts
+            post-has-tag)
   #:replace (link))
 
 (define (date year month day)
@@ -60,5 +61,13 @@
 (define (flatten l)
   (list-transduce tflatten rcons l))
 
-(define (essay-posts posts) (assoc-ref (posts/group-by-tag posts) "essay"))
-(define (note-posts posts) (assoc-ref (posts/group-by-tag posts) "note"))
+(define (tag-filter-generator tag)
+  (lambda (posts)
+    (or (assoc-ref (posts/group-by-tag posts) tag)
+        '())))
+
+(define thought-posts (tag-filter-generator "thought"))
+(define rambling-posts (tag-filter-generator "rambling"))
+
+(define (post-has-tag post tag)
+  (member tag (post-ref post 'tags)))

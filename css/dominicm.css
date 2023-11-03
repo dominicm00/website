@@ -9,6 +9,9 @@
   --sans-font: sans-serif;
   --mono-font: monospace;
 
+  /* Tooltips */
+  --tooltip-bg: #f0e9d0;
+
   /* Taken from the Monokai Pro theme */
   --syntax-bg: #2d2a2e;
   --syntax-fg: #fcfcfa;
@@ -35,6 +38,14 @@ h1 {
 
 h2 {
   font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 10px 0 15px 0;
 }
 
 /* Header */
@@ -64,27 +75,29 @@ nav > #home-link > img {
   width: 40px;
 }
 
-header > nav > a, header > nav > a:visited {
+header > nav > a,
+header > nav > a:visited {
   border: none;
   font-size: 1.25rem;
   text-decoration: solid underline;
 }
 
 /* Home page */
-#home h1 {
+.home h1 {
   margin-bottom: 10px;
 }
 
-#home .post-type-header {
+.home .post-type-header {
   font-size: 2rem;
   margin-top: 2.5rem;
 }
 
-#home a {
+.home a {
   font-size: 1.4rem;
 }
 
-#home p, .collection p {
+.home p,
+.collection p {
   margin-top: 0;
   margin-bottom: 5px;
 }
@@ -95,23 +108,21 @@ header > nav > a, header > nav > a:visited {
 }
 
 p.post-type-description {
-  font-style: italic;
   color: var(--text-light);
-  margin-bottom: 10px;
 }
 
 p.post-summary {
+  font-style: italic;
   color: var(--text-light);
 }
 
 .collection > .post-link {
-  margin: 0;
+  margin-top: 1.5rem;
   font-weight: normal;
 }
 
 .collection > .post-link > a {
   font-size: 1.5rem;
-  text-decoration: none;
 }
 
 footer {
@@ -120,6 +131,83 @@ footer {
 
 #collection-title {
   margin-bottom: 1rem;
+}
+
+p.thought-stage {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  margin: 5px 0 0 0;
+  color: var(--text-light);
+}
+
+p.thought-stage img {
+  display: inline-block;
+  height: 1rem;
+  padding-right: 7px;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover:before,
+.tooltip:hover:after {
+  display: block;
+}
+
+.tooltip:before {
+  content: attr(data-description);
+  position: absolute;
+
+  /* horizonally center */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* move to bottom */
+  top: 100%;
+  margin-top: 10px; /* and add a small top margin */
+
+  /* basic styles */
+  width: 200px;
+  padding: 10px;
+  border-radius: 3px;
+  background: var(--tooltip-bg);
+  color: var(--text);
+  text-align: center;
+  box-shadow:
+    0 7px 14px rgba(0, 0, 0, 0.25),
+    0 5px 5px rgba(0, 0, 0, 0.22);
+
+  display: none; /* hide by default */
+}
+
+.tooltip:after {
+  content: "";
+  position: absolute;
+
+  /* horizonally center */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* move to bottom */
+  top: 100%;
+  margin-top: -10px;
+
+  /* the arrow */
+  border: 10px solid #000;
+  border-color: transparent transparent var(--tooltip-bg) transparent;
+  display: none;
+}
+
+/* Posts */
+
+/* Reduce margin of adjacent headers */
+main.post > h2 + h3,
+main.post > h3 + h4,
+main.post > h4 + h5 {
+  margin-top: 10px;
 }
 
 /* Syntax Highlighting */

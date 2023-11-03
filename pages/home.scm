@@ -9,27 +9,34 @@
   #:use-module (haunt post))
 
 (define-public (home-page site posts)
-  (dm/static-page
+  (define thoughts (thought-posts posts))
+  (define ramblings (rambling-posts posts))
+
+  (static-page
    site
    "Home"
    "index.html"
    `((main
-      (@ (id "home"))
+      (@ (class "home"))
       (h1 "Welcome!")
       (p (@ (id "home-intro"))
          "I'm Dominic, a student and developer focused on making open,
  flexible, and friendly tools.")
       ,(link "→ more about me" "/about.html")
 
-      (h2 (@ (class "post-type-header")) "Essays")
-      (p (@ (class "post-type-description"))
-         "An ever-evolving set of my current ideas and beliefs")
-      ,(post-list (essay-posts posts))
-      ,(link "→ see all essays" "/essays.html")
+      ,@(if (null? thoughts)
+            '()
+            `((h2 (@ (class "post-type-header")) "Thoughts")
+              (p (@ (class "post-type-description"))
+                 "What I'm thinking about right now")
+              ,(post-list thoughts)
+              ,(link "→ see all thoughts" "/thoughts.html")))
 
-      (h2 (@ (class "post-type-header")) "Notes")
-      (p (@ (class "post-type-description"))
-         "My unpolished thoughts and experiences")
-      ,(post-list (note-posts posts))
-      ,(link "→ see all notes" "/notes.html")
+      ,@(if (null? ramblings)
+            '()
+            `((h2 (@ (class "post-type-header")) "Ramblings")
+              (p (@ (class "post-type-description"))
+                 "Unpolished experiences and ideas")
+              ,(post-list ramblings)
+              ,(link "→ see all ramblings" "/ramblings.html")))
       ))))

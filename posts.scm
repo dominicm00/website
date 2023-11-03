@@ -8,30 +8,16 @@
   #:use-module (syntax-highlight c)
   #:use-module (syntax-highlight css)
   #:use-module (syntax-highlight scheme)
-  #:use-module (highlight-python)
-  #:use-module (highlight-assembly)
+  #:use-module (syntax-highlight python)
+  #:use-module (syntax-highlight assembly)
   #:use-module (commonmark)
   #:use-module (haunt post)
   #:use-module (haunt reader)
   #:use-module (ice-9 match))
 
-(define-public (image-with-height filename alt height)
-  `(img (@ (alt ,alt)
-           (src ,(string-append "/assets/images/" filename))
-           (style ,(string-append "max-height: " height)))))
-
 (define-public (highlighted-code lexer code)
-  `(pre (code ,(highlights->sxml (highlight lexer
-                                            (string-trim code))))))
-
-(define-public (caption b c)
-  `(figure ,b (figcaption ,c)))
-
-(define-public (todo t)
-  `(p (@ (style "color: #ff3333")) (string-append "TODO: " ,t)))
-
-(define-public (inline-code c)
-  `(code (@ (class "inline-code")) ,c))
+  (highlights->sxml (highlight lexer
+                               (string-trim code))))
 
 (define-public (post-process-sxml sxml)
   (define (lexer-for-lang language)
@@ -40,11 +26,18 @@
       ("language-css" lex-css)
       ("language-scheme" lex-scheme)
       ("language-asm" lex-assembly)
-      ("language-python" lex-python)))
+      ("language-python" lex-python)
+      (_ #f)))
 
   (map (match-lambda
          (`(pre (code (@ (class ,language)) ,code))
-          (highlighted-code (lexer-for-lang language) code))
+          (let ((lexer (lexer-for-lang language))
+                (wrapper (lambda (code)
+                           `(pre (code (@ (class ,language)) ,code)))))
+            (if lexer
+                (wrapper (highlighted-code lexer code))
+                (wrapper code))))
+
          (x x))
        sxml))
 

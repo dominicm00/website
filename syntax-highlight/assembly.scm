@@ -1,8 +1,8 @@
-; SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: GPL-3.0-or-later
+;; SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
-(define-module (highlight-assembly)
+(define-module (syntax-highlight assembly)
   #:use-module (ice-9 match)
   #:use-module (srfi srfi-1)
   #:use-module (srfi srfi-11)
@@ -10,7 +10,7 @@
   #:use-module (syntax-highlight lexers)
   #:export (lex-assembly))
 
-; TODO: This whole thing is horrible but I don't know how to improve it...
+;; TODO: This whole thing is horrible but I don't know how to improve it...
 (define char-set:assembly-constant
   (char-set #\- #\0 #\1 #\2 #\3 #\4 #\5 #\6 #\7 #\8 #\9))
 

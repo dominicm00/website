@@ -14,7 +14,7 @@
      (p ,description))))
 
 (define-public (about-me site)
-  (dm/static-page
+  (static-page
    site
    "About Dominic Martinez"
    "about.html"

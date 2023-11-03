@@ -1,12 +1,17 @@
 title: Convenience is a bad goal
-summary: When we strive for convenience, we often make things worse.
-date: 2023-10-11 12:00
-tags: note
+summary: When we strive for convenience, we often make things worse
+date: 2023-10-13 12:07
+tags: thought
+stage: nebulous
 ---
 
-Convenience can be good, in that *if* we make *good* things convenient (e.g.
-public transport) we can encourage people to do them. However, modern society
-often enables unhealthy forms of convenience.
+Everyone likes convenience. In fact, we like it so much that many of our day to
+day decisions are primarily influenced by it. However, just because something is
+convenient, doesn't mean it's good—or even enjoyable!
+
+Convenience can be a useful tool, in that if we make *good* things convenient
+(e.g. public transport) we can encourage people to use them. However, modern
+society often enables unhealthy forms of convenience.
 
 ## Abstracting cost
 Convenience, and particularly technological convenience, is used to hide real
@@ -30,7 +35,8 @@ buy.
 
 ## Discomfort is important
 Convenience is a result of our avoidant tendencies. We use convenience to avoid
-discomfort, but many modern "conveniences" let us avoid important discomforts!
+discomfort, but many discomforts are normal, and healthy, to experience.
+
 If you are forced to confront the reality of where your food and products come
-from or what other people are going through, **that is a good thing**. Avoiding
-discomfort is not worth also avoiding truth.
+from, to interact with someone, or to see what other people are going through,
+*that is a good thing*. Avoiding discomfort is not worth also avoiding truth.

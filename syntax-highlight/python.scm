@@ -1,8 +1,8 @@
-; SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: GPL-3.0-or-later
+;; SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
-(define-module (highlight-python)
+(define-module (syntax-highlight python)
   #:use-module (ice-9 match)
   #:use-module (srfi srfi-1)
   #:use-module (srfi srfi-11)
@@ -24,12 +24,12 @@
   (any (cut string=? <> str) %python-reserved-words))
 
 (define %python-operators
-    '("=" "==" "!=" "<=" ">=" "<" ">"
-      "@" "**" "//" "*" "/" "%" "++" "--" "+" "-"
-      "<<" ">>" "&" "|" "~" "^" "."))
+  '("=" "==" "!=" "<=" ">=" "<" ">"
+    "@" "**" "//" "*" "/" "%" "++" "--" "+" "-"
+    "<<" ">>" "&" "|" "~" "^" "."))
 
 (define %python-separators
-    '(":" ","))
+  '(":" ","))
 
 (define lex-python-operator
   (lex-any* (map lex-string %python-operators)))

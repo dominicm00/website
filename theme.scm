@@ -7,9 +7,14 @@
   #:use-module (haunt builder blog)
   #:use-module (haunt post)
   #:use-module (srfi srfi-19)
+  #:use-module (ice-9 match)
   #:use-module (util))
 
-(define (%dm/layout site title body)
+(define %thought-stages
+  `(("nebulous" "Nebulous" #f "/assets/images/profile-picture-128.png" "Nebula")
+    ("fusing" "Fusing" #f "/assets/images/profile-picture-128.png" "Fusing blue star")))
+
+(define (layout site title body)
   `((doctype html)
     (html
      (@ (lang "en"))
@@ -34,8 +39,8 @@
            (img (@ (src "/assets/images/profile-picture-128.png")
                    (alt "Home"))))
         ,(link "About me" "/about.html")
-        ,(link "Essays" "/essays.html")
-        ,(link "Notes" "/notes.html")))
+        ,(link "Thoughts" "/thoughts.html")
+        ,(link "Ramblings" "/ramblings.html")))
 
       ,body
 
@@ -48,12 +53,28 @@
         " - "
         ,(link "Source code" "https://sr.ht/~dominicm/website")))))))
 
+(define (stage-blurb stage)
+  (define stage-info (assoc stage %thought-stages))
+
+  (match stage-info
+    ((tag title description image alt)
+     `((p (@ (class "thought-stage"))
+        (img (@ (src ,image) (alt ,alt)))
+        ,(if description
+             (string-append title ": " description)
+             title))))))
+
 (define-public (post-list posts)
   `((div (@ (class "collection"))
      ,@(map (lambda (post)
               `((h3 (@ (class "post-link"))
                  ,(link (post-ref post 'title)
                         (string-append (post-slug post) ".html")))
+
+                ,@(if (post-ref post 'stage)
+                      (stage-blurb (post-ref post 'stage))
+                      '())
+
                 (p (@ (class "post-summary"))
                    ,(post-ref post 'summary))))
             posts))))
@@ -61,19 +82,20 @@
 (define-public (post-template post)
   `((main (@ (class "post"))
      (h1 ,(post-ref post 'title))
+     (p (@ (class "post-summary")) ,(post-ref post 'summary))
      ,(post-sxml post))))
 
-(define-public (%dm/collection site title posts prefix)
+(define-public (collection-template site title posts prefix)
   `((main
      (h1 (@ (id "collection-title"))
          ,title)
      ,(post-list posts))))
 
-(define-public %dm/blog-theme
+(define-public blog-theme
   (theme #:name "dominicm"
-         #:layout %dm/layout
+         #:layout layout
          #:post-template post-template
-         #:collection-template %dm/collection))
+         #:collection-template collection-template))
 
-(define-public dm/static-page
-  (static-page-generator %dm/blog-theme))
+(define-public static-page
+  (static-page-generator blog-theme))

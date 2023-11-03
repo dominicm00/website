@@ -17,8 +17,8 @@
              (theme))
 
 (define %collections
-  `(("Essays" "essays.html" ,(compose posts/reverse-chronological essay-posts))
-    ("Notes" "notes.html" ,(compose posts/reverse-chronological note-posts))))
+  `(("Thoughts" "thoughts.html" ,(compose posts/reverse-chronological thought-posts))
+    ("Ramblings" "ramblings.html" ,(compose posts/reverse-chronological rambling-posts))))
 
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"
@@ -29,7 +29,7 @@
       #:builders
       (list
        static-pages
-       (blog #:theme %dm/blog-theme #:collections %collections)
+       (blog #:theme blog-theme #:collections %collections)
        (static-directory "assets")
        (static-directory "css")
        (static-directory ".well-known")))
