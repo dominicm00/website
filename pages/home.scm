@@ -8,6 +8,23 @@
   #:use-module (util)
   #:use-module (haunt post))
 
+(define section-limit 3)
+
+(define (post-section name display-name description posts)
+  (if (null? posts)
+      '()
+      `((h2 (@ (class "post-type-header")) ,display-name)
+        (p (@ (class "post-type-description")) ,description)
+        ,(post-list (list-head posts
+                               (min (length posts) section-limit)))
+
+        ,@(if (> (length posts) section-limit)
+              `(,(link
+                  (string-append "→ see all " name)
+                  (string-append "/" name ".html")))
+              '())
+        )))
+
 (define-public (home-page site posts)
   (define thoughts (thought-posts posts))
   (define ramblings (rambling-posts posts))
@@ -24,25 +41,6 @@
  flexible, and friendly tools.")
       ,(link "→ more about me" "/about.html")
 
-      ,@(if (null? thoughts)
-            '()
-            `((h2 (@ (class "post-type-header")) "Thoughts")
-              (p (@ (class "post-type-description"))
-                 "What I'm thinking about right now")
-              ,(post-list thoughts)
-
-              ;; XXX: Re-enable link at >3 thoughts
-              ;; ,(link "→ see all thoughts" "/thoughts.html")
-              ))
-
-      ,@(if (null? ramblings)
-            '()
-            `((h2 (@ (class "post-type-header")) "Ramblings")
-              (p (@ (class "post-type-description"))
-                 "Unpolished experiences and ideas")
-              ,(post-list ramblings)
-
-              ;; XXX: Re-enable link at >3 ramblings
-              ;; ,(link "→ see all ramblings" "/ramblings.html")
-              ))
+      ,@(post-section "thoughts" "Thoughts" "What I'm currently thinking about" thoughts)
+      ,@(post-section "ramblings" "Ramblings" "A shout into the void" ramblings)
       ))))
