@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 title: Going beyond the REPL
 summary: Improving the UX of interactive programming
 date: 2023-11-03 12:05

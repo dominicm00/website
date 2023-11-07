@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 title: Convenience is a bad goal
 summary: When we strive for convenience, we often make things worse
 date: 2023-10-13 12:07
