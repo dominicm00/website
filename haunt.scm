@@ -41,6 +41,8 @@
       (list
        static-pages
        (blog #:theme blog-theme #:collections %collections)
+       (atom-feed)
+       (atom-feeds-by-tag)
        (static-directory "assets")
        (static-directory "css")
        (static-directory ".well-known")))

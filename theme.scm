@@ -71,7 +71,9 @@
         ", "
         ,(link "Simple.css" "https://simplecss.org/")
         " - "
-        ,(link "Source code" "https://sr.ht/~dominicm/website")))))))
+        ,(link "Source code" "https://sr.ht/~dominicm/website")
+        " - "
+        ,(link "RSS feed" "/feed.xml")))))))
 
 (define (stage-blurb stage)
   (let ((name (stage-name stage))
