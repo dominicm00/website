@@ -1,5 +1,4 @@
-;; Copyright © 2018-2021 David Thompson <davet@gnu.org>
-;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
+;; SPDX-FileCopyrightText: 2018-2021 David Thompson <davet@gnu.org>
 ;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
 ;;
 ;; SPDX-License-Identifier: GPL-3.0-or-later

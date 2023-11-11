@@ -1,6 +1,6 @@
-; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
-;
-; SPDX-License-Identifier: CC0-1.0
+;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
+;;
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 (use-modules (guix packages)
              (guix git-download)
@@ -8,12 +8,7 @@
              (gnu packages guile)
              (gnu packages autotools)
              (gnu packages texinfo)
-	     (gnu packages license))
-
-;; Install git hooks
-(if (file-exists? ".git/")
-    (begin
-      (copy-file ".pre-commit-hook.sh" ".git/hooks/pre-commit")))
+             (gnu packages license))
 
 (packages->manifest
  (list guile-syntax-highlight haunt guile-3.0-latest guile-reader reuse))
