@@ -46,6 +46,7 @@
                (content "width=device-width, initial-scale=1")))
       (title ,title)
       ,@(make-icon "128")
+
       ,(stylesheet "simple")
       ,(stylesheet "dominicm")
 

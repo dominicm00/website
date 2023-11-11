@@ -59,6 +59,10 @@
          (`(pre (code (@ (class ,language)) ,code))
           ((code-processor language) code))
 
+         ;; Support captions
+         (`(blockquote (h1 "caption") ,fig . ,caption)
+          `(figure ,fig (figcaption ,caption)))
+
          ;; Support callout blocks
          (`(blockquote (h1 ,class) . ,content)
           `(aside (@ (class ,class)) ,content))

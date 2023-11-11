@@ -194,10 +194,6 @@ main.post > h4 + h5 {
   margin-top: 10px;
 }
 
-hr {
-  margin: 2rem auto;
-}
-
 /* Support callout boxes */
 aside.inline {
   float: none;
@@ -207,6 +203,14 @@ aside.inline {
 
 aside > *:first-child {
   margin-top: 10px;
+}
+
+hr {
+  margin: 2rem auto;
+}
+
+span.katex {
+  font-size: 2.5rem;
 }
 
 /* Syntax Highlighting */
@@ -257,4 +261,9 @@ pre {
 
 .syntax-function {
   color: var(--syntax-green);
+}
+
+.language-scheme .syntax-open,
+.language-scheme .syntax-close {
+  color: var(--syntax-magenta);
 }
