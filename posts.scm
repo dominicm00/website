@@ -13,31 +13,51 @@
   #:use-module (commonmark)
   #:use-module (haunt post)
   #:use-module (haunt reader)
-  #:use-module (ice-9 match))
+  #:use-module (ice-9 match)
+  #:use-module (ice-9 curried-definitions)
+  #:use-module (ice-9 popen)
+  #:use-module (ice-9 textual-ports))
 
 (define-public (highlighted-code lexer code)
   (highlights->sxml (highlight lexer
                                (string-trim code))))
 
+(define-public (convert-latex latex)
+  (let* ((port (open-pipe* OPEN_READ "node" "katex-runner.js" latex))
+         (html (get-string-all port))
+         (status (close-pipe port))
+         (success (zero? (status:exit-val status))))
+    (display html)
+    (if success `(p (html-literal ,html))
+        (raise-exception
+         (make-exception-with-message
+          (string-append "Failed to parse latex\n"
+                         latex
+                         "With error:\n"
+                         html))))))
+
 (define-public (post-process-sxml sxml)
-  (define (lexer-for-lang language)
+  (define ((highlighter lexer language) code)
+    `(pre (code (@ (class ,language))
+                ,(highlighted-code lexer code))))
+
+  (define (plain-code-block code)
+    `(pre (code ,code)))
+
+  (define (code-processor language)
     (match language
-      ("language-c" lex-c)
-      ("language-css" lex-css)
-      ("language-scheme" lex-scheme)
-      ("language-asm" lex-assembly)
-      ("language-python" lex-python)
-      (_ #f)))
+      ("language-c" (highlighter lex-c language))
+      ("language-css" (highlighter lex-css language))
+      ("language-scheme" (highlighter lex-scheme language))
+      ("language-asm" (highlighter lex-assembly language))
+      ("language-python" (highlighter lex-python language))
+      ("language-latex" convert-latex)
+      (_ plain-code-block)))
 
   (map (match-lambda
          ;; Highlight supported code blocks
          (`(pre (code (@ (class ,language)) ,code))
-          (let ((lexer (lexer-for-lang language))
-                (wrapper (lambda (code)
-                           `(pre (code (@ (class ,language)) ,code)))))
-            (if lexer
-                (wrapper (highlighted-code lexer code))
-                (wrapper code))))
+          ((code-processor language) code))
 
          ;; Support callout blocks
          (`(blockquote (h1 ,class) . ,content)

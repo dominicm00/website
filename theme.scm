@@ -47,7 +47,10 @@
       (title ,title)
       ,@(make-icon "128")
       ,(stylesheet "simple")
-      ,(stylesheet "dominicm"))
+      ,(stylesheet "dominicm")
+
+      (link (@ (rel "stylesheet")
+               (href "/assets/katex/katex.css"))))
      (body
       (header
        (nav
