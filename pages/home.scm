@@ -11,6 +11,7 @@
 (define section-limit 3)
 
 (define (post-section name display-name description posts)
+  "Generate a homepage section displaying up to `section-limit' posts."
   (if (null? posts)
       '()
       `((h2 (@ (class "post-type-header")) ,display-name)

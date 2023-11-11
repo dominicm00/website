@@ -62,10 +62,6 @@ so. REPLs test small expressions quickly, but introduce a friction boundary
 between the REPL and code. Can we test small changes directly in the code,
 rather than in a REPL?
 
-### Evaluating expressions in context
-REPLs only evaluate top-level expressions. This makes it difficult to test
-expressions that are dependent on other data:
-
 ```haskell
 f x = out
   where
@@ -81,16 +77,29 @@ f x = out
 "my answer"
 ```
 
-Let's automate this process by taking a point from debuggers. As long as we have
-a way to run this function, we can introspect the expressions as they are being
-used.
+Technologically, this is not an interesting idea; debuggers already do this. The
+point is developing a UX that encourages a healthier developer workflow.
 
-So what input should we use to the function?
+How many times have you written an entire function, file, or more before ever
+running any code? How often were you unsure if an expression was correct, but
+delayed testing it until the function was complete? The harder it is to inspect
+and test code, the longer we will wait until testing it.
+
+We need to put the value of an expression right in your face, as soon as you
+write it. **Let's evaluate our code continuously, and show the values of
+expressions as soon as you type them**.
+
+As a developer, this makes the feedback between writing and testing code
+instant. There's no explicit action to take to start a test, and so no incentive
+to wait to test. If an expression is incorrect on the given test case, the
+developer will see that immediately after writing it.
+
+As a reader, this is a powerful tool for exploring an unfamiliar codebase.
+Learning by example is a powerful tool, and seeing concrete instances of any
+value lets readers think less abstractly about code.
 
 ### Hijacking unit tests
-![An example function with the values of all intermediate expressions shown on
-screen based on a unit
-test](/assets/images/going-beyond-the-repl_live-expression-example.png)
+![An example function with the values of all intermediate expressions shown on screen based on a unit test](/assets/images/going-beyond-the-repl/live-expression-example.png)
 
 We can use unit tests to run our desired function. Not only does give the reader
 documented examples to introspect, but it also encourages developing unit tests
@@ -101,7 +110,11 @@ If our function has recursion (or loops which can be expressed as recursion), an
 expression can be run multiple times in a single call. How do we let the user
 explore all different usages?
 
-As long as our arguments are immutable, storing the arguments to all calls of a function is generally not significantly expensive. Then the user can selectively introspect a specific call, or see the value of an expression/return value across a series of calls.
+As long as our arguments are immutable, storing the arguments to all calls of a
+function is generally not significantly expensive. Then the user can selectively
+introspect a specific call, or see the value of an expression/return value
+across a series of calls.
+
 ```haskell
 factorial 0 = 2 -- Uh oh, this should be 1!
 factorial x = x * factorial (x - 1)
@@ -122,13 +135,15 @@ In pathological cases where complete storage is too expensive, we can still:
    function and observe all the times it is called
 
 ### Retrofitting existing languages
-We can inefficiently implement this in any functional language with a REPL via code transformation. Adding wrappers around the tested function and expressions makes it easy to track their values and arguments.
+We can inefficiently implement this in any functional language with a REPL via
+code transformation. Adding wrappers around the tested function and expressions
+makes it easy to track their values and arguments.
+
 ```haskell
 factorial x = x * factorial (x - 1)
--- Pseudocode transformation example
-=> factorial x = memoize {args=[x], value=x * factorial (x - 1)}
+=> factorial x = memoize 
+		(Memo {args=[x], value=x * factorial (x - 1)})
 ```
-
 But this requires re-running the entire function on change! A key feature of
 REPLs and computational notebooks is running an expensive expression once, and
 then re-using it. Can we do this automatically?
@@ -138,6 +153,7 @@ If we know parts of our code are purely functional, then yes! Let's look at a
 simplified model of function design to see why.
 
 Say a function is a series of assignments, that eventually returns an expression:
+
 ```haskell
 format_matrix matrix = -- some expensive computation
 
@@ -149,6 +165,7 @@ make_csv headers matrix = csv_output
 ```
 
 Now we want to change the file to be tab delimited:
+
 ```haskell
 format_matrix matrix = -- some expensive computation
 
@@ -166,29 +183,6 @@ only have to re-run `csv_lines` and the things that depend on it.
 If we develop a function top-down, we'll generally only have to re-run the last
 expression. This is potentially much more efficient than running a test case
 from scratch.
-
-## It's all in the UX
-Technologically, this is not an interesting idea. There's no functionality that
-goes beyond a debugger. The point is to develop a UX that encourages a healthier
-developer workflow.
-
-How many times have you written an entire function, file, or more before ever
-running any code? How often were you unsure if an expression was correct, but
-delayed testing it until the function was complete? The harder it is to inspect
-and test code, the longer we will wait until testing it.
-
-We need to put the value of an expression right in your face, as soon as you
-write it. **Let's evaluate our code continuously, and show the values of
-expressions as soon as you type them**.
-
-As a developer, this makes the feedback between writing and testing code
-instant. There's no explicit action to take to start a test, and so no incentive
-to wait to test. If an expression is incorrect on the given test case, the
-developer will see that immediately after writing it.
-
-As a reader, this is a powerful tool for exploring an unfamiliar codebase.
-Learning by example is a powerful tool, and seeing concrete instances of any
-value lets readers think less abstractly about code.
 
 ## Parting thoughts
 For decades, our solution to fundamental challenges with programming has been

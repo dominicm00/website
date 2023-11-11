@@ -1,0 +1,7 @@
+{
+  "author": "Dominic Martinez <dom@dominicm.dev>",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "katex": "^0.16.9"
+  }
+}

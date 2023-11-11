@@ -7,3 +7,5 @@
 *.log
 tmp/
 site*
+
+node_modules/
