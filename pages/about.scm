@@ -1,4 +1,3 @@
-;; Copyright © 2022 Dominic Martinez <dom@dominicm.dev>
 ;; SPDX-FileCopyrightText: 2022 Dominic Martinez <dom@dominicm.dev>
 ;;
 ;; SPDX-License-Identifier: GPL-3.0-or-later
@@ -23,7 +22,7 @@
       (h1 "Dominic Martinez")
 
       (h2 "About me")
-      (p "Welcome! I'm a university student and developer making open, user-centric
+      (p "Hello! I'm a university student and developer making open, empowering
 software. I'm particularly interested in tools for thought, programming
 languages, and operating systems. Feel free to chat with me over email or
 Fediverse!")

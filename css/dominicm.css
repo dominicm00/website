@@ -23,7 +23,40 @@
   --syntax-green: #a9dc76;
 }
 
-/* Global styles */
+/* Global styles
+ * Some styles inspired by Josh Comeau's CSS reset:
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ */
+
+* {
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 a {
   text-underline-offset: 3px;
 }
@@ -66,9 +99,9 @@ nav:nth-child(2) {
 }
 
 nav > #home-link {
-  justify-self: start;
   padding-left: 0;
   margin-left: 0;
+  height: auto;
 }
 
 nav > #home-link > img {
@@ -152,65 +185,27 @@ p.thought-stage {
   color: var(--text-light);
 }
 
-.tooltip {
-  position: relative;
-}
-
-.tooltip:hover:before,
-.tooltip:hover:after {
-  display: block;
-}
-
-.tooltip:before {
-  content: attr(data-description);
-  position: absolute;
-
-  /* horizonally center */
-  left: 50%;
-  transform: translateX(-50%);
-
-  /* move to bottom */
-  top: 100%;
-  margin-top: 10px; /* and add a small top margin */
-
-  /* basic styles */
-  width: 200px;
-  padding: 10px;
-  border-radius: 3px;
-  background: var(--tooltip-bg);
-  color: var(--text);
-  text-align: center;
-  box-shadow:
-    0 7px 14px rgba(0, 0, 0, 0.25),
-    0 5px 5px rgba(0, 0, 0, 0.22);
-
-  display: none; /* hide by default */
-}
-
-.tooltip:after {
-  content: "";
-  position: absolute;
-
-  /* horizonally center */
-  left: 50%;
-  transform: translateX(-50%);
-
-  /* move to bottom */
-  top: 100%;
-  margin-top: -10px;
-
-  /* the arrow */
-  border: 10px solid #000;
-  border-color: transparent transparent var(--tooltip-bg) transparent;
-  display: none;
-}
-
 /* Posts */
 
 /* Reduce margin of adjacent headers */
 main.post > h2 + h3,
 main.post > h3 + h4,
 main.post > h4 + h5 {
+  margin-top: 10px;
+}
+
+hr {
+  margin: 2rem auto;
+}
+
+/* Support callout boxes */
+aside.inline {
+  float: none;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+aside > *:first-child {
   margin-top: 10px;
 }
 

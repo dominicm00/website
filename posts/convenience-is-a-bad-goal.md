@@ -1,14 +1,21 @@
-<!--
-SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
-
-SPDX-License-Identifier: CC-BY-SA-4.0
--->
-
 title: Convenience is a bad goal
 summary: When we strive for convenience, we often make things worse
 date: 2023-10-13 12:07
 tags: thought
 ---
+
+> # inline info
+> ## Disclaimer
+> Something about this post doesn't feel right to me. Maybe it's how
+> first-world/privileged it is. It also just seems…too narrow. Convenience is one
+> of many factors we like, and bad products can manipulate us in other ways.
+> 
+> For that matter, what is convenience? What is it compared to addiction? Where
+> does convenience transition from rational time-savings to penny-pinching
+> minutia? How does it play into our energy and will?
+> 
+> I have more thinking and research to do on this topic, but I'm still publishing
+> this post because I think it's still an important part of design to consider.
 
 Everyone likes convenience. In fact, we like it so much that many of our day to
 day decisions are primarily influenced by it. However, just because something is

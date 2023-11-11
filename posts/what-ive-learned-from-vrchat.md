@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
-
-SPDX-License-Identifier: CC-BY-SA-4.0
--->
-
 title: What I've learned from VRChat
 summary: How virtual social spaces helped me with social anxiety
-date: 2023-10-21 18:23
+date: 2023-11-11 18:23
 tags: rambling
 ---
 

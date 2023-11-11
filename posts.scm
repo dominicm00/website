@@ -30,6 +30,7 @@
       (_ #f)))
 
   (map (match-lambda
+         ;; Highlight supported code blocks
          (`(pre (code (@ (class ,language)) ,code))
           (let ((lexer (lexer-for-lang language))
                 (wrapper (lambda (code)
@@ -38,6 +39,11 @@
                 (wrapper (highlighted-code lexer code))
                 (wrapper code))))
 
+         ;; Support callout blocks
+         (`(blockquote (h1 ,class) . ,content)
+          `(aside (@ (class ,class)) ,content))
+
+         ;; Pass other objects through unchanged
          (x x))
        sxml))
 

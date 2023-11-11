@@ -1,14 +1,12 @@
-<!--
-SPDX-FileCopyrightText: 2023 Dominic Martinez <dom@dominicm.dev>
-
-SPDX-License-Identifier: CC-BY-SA-4.0
--->
-
 title: Going beyond the REPL
 summary: Improving the UX of interactive programming
-date: 2023-11-03 12:05
+date: 2023-11-11 12:05
 tags: thought
 ---
+
+> # inline info
+> ## Disclaimer
+> This post is currently rambles a bit. I'll try and make it more concise.
 
 REPL-driven development has
 [long](https://mikelevins.github.io/posts/2020-12-18-repl-driven/)

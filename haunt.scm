@@ -11,6 +11,8 @@
              (haunt builder blog)
              (haunt builder atom)
 
+             (srfi srfi-1)
+
              (builder)
              (util)
              (posts)
@@ -20,11 +22,20 @@
   `(("Thoughts" "thoughts.html" ,thought-posts)
     ("Ramblings" "ramblings.html" ,rambling-posts)))
 
+(define %ignored-extensions
+  '(".license"))
+
+(define (ignore-file-predicate filename)
+  (not (any (lambda (extension)
+              (string-suffix? extension filename))
+            %ignored-extensions)))
+
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"
       #:default-metadata
       '((author . "Dominic Martinez")
         (email  . "dom@dominicm.dev"))
+      #:file-filter ignore-file-predicate
       #:readers (list modified-commonmark-reader)
       #:builders
       (list
