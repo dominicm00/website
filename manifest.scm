@@ -31,4 +31,4 @@
        guile-3.0-latest
        guile-reader
        reuse
-       node))
+       node-lts))

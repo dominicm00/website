@@ -14,8 +14,8 @@ tags: thought
 > does convenience transition from rational time-savings to penny-pinching
 > minutia? How does it play into our energy and will?
 > 
-> I have more thinking and research to do on this topic, but I'm still publishing
-> this post because I think it's still an important part of design to consider.
+> I have more thinking and research to do on this topic, but I'm publishing this
+> post because I think it's still an important part of design to consider.
 
 Everyone likes convenience. In fact, we like it so much that many of our day to
 day decisions are primarily influenced by it. However, just because something is

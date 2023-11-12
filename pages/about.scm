@@ -24,8 +24,11 @@
       (h2 "About me")
       (p "Hello! I'm a university student and developer making open, empowering
 software. I'm particularly interested in tools for thought, programming
-languages, and operating systems. Feel free to chat with me over email or
-Fediverse!")
+languages, and operating systems.
+
+I also love to cook, play games, and hang out in VR.
+
+Feel free to chat with me over email or Fediverse!")
 
       (h2 "Contact me")
       ,(link "dom@dominicm.dev" "mailto:dom@dominicm.dev")

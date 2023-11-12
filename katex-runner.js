@@ -4,5 +4,11 @@
 
 const katex = require("katex");
 const latex_string = process.argv[2];
-const html = katex.renderToString(latex_string);
+
+const options = {
+  displayMode: true,
+  strict: true,
+};
+
+const html = katex.renderToString(latex_string, options);
 console.log(html);
