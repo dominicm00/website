@@ -13,6 +13,9 @@ tasks:
   - check: |
       cd website
       reuse lint
+  - node-install: |
+      cd website
+      guix shell -m manifest.scm -- npm install
   - package: |
       cd website
       guix shell -m manifest.scm -- haunt build

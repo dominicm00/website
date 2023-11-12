@@ -9,7 +9,8 @@
              (gnu packages guile)
              (gnu packages autotools)
              (gnu packages texinfo)
-             (gnu packages license))
+             (gnu packages license)
+             (gnu packages node))
 
 (define patched-haunt
   (package
@@ -25,4 +26,9 @@
             (patches `(,(local-file "patches/haunt-literal-html.patch")))))))
 
 (packages->manifest
- (list guile-syntax-highlight patched-haunt guile-3.0-latest guile-reader reuse))
+ (list guile-syntax-highlight
+       patched-haunt
+       guile-3.0-latest
+       guile-reader
+       reuse
+       node))
