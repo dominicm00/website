@@ -27,7 +27,6 @@
          (html (get-string-all port))
          (status (close-pipe port))
          (success (zero? (status:exit-val status))))
-    (display html)
     (if success `(p (html-literal ,html))
         (raise-exception
          (make-exception-with-message
