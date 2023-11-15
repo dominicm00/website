@@ -1,5 +1,5 @@
 title: Visual clarity of code
-summary: The importance of visual processing to code readability
+summary: The importance of syntax to code readability
 date: 2022-12-13 12:00
 tags: thought
 ---
@@ -7,8 +7,8 @@ tags: thought
 > # inline info 
 > ## Disclaimer 
 > 
-> This post is old and in need of a rewrite. Yet another box on my to-do list
-> that I will _definitely_ get to.
+> This post is old and in need of review. Yet another box on my to-do list that
+> I will _definitely_ get to.
 
 When discussing how easy a programming language is to read or write, we
 primarily think about functionality; what abstractions does the language provide

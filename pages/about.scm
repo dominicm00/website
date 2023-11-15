@@ -28,11 +28,11 @@ languages, and operating systems.
 
 I also love to cook, play games, and hang out in VR.
 
-Feel free to chat with me over email or Fediverse!")
+Feel free to chat with me over any contact method below!")
 
       (h2 "Contact me")
-      ,(link "dom@dominicm.dev" "mailto:dom@dominicm.dev")
-      (br)
-      (a (@ (rel "me") (href "https://alpha.polymaths.social/@dominicm")) "Fediverse")
-      (br)
-      ,(link "PGP key" "https://meta.sr.ht/~dominicm.pgp")))))
+      (ul
+       (li (a (@ (rel "me") (href "mailto:dom@dominicm.dev")) "dom@dominicm.dev"))
+       (li (a (@ (rel "me") (href "https://alpha.polymaths.social/@dominicm")) "Fediverse"))
+       (li (a (@ (rel "me") (href "https://www.linkedin.com/in/dominicm00")) "LinkedIn"))
+       (li ,(link "PGP key" "https://meta.sr.ht/~dominicm.pgp")))))))

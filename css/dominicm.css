@@ -38,16 +38,6 @@
   box-sizing: border-box;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
 img,
 picture,
 video,
@@ -121,7 +111,6 @@ header > nav > a:visited {
 }
 
 .home .post-type-header {
-  font-size: 2rem;
   margin-top: 2.5rem;
 }
 
@@ -183,6 +172,15 @@ p.thought-stage {
   font-style: italic;
   margin: 5px 0 0 0;
   color: var(--text-light);
+}
+
+/* About page */
+#about ul {
+  padding: 0;
+}
+
+#about li {
+  list-style-type: none;
 }
 
 /* Posts */
