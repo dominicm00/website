@@ -24,7 +24,7 @@ def mult_by_2(arr):
 
 ```python
 def mult_by_2(arr):
-return [x * 2 for x in arr]
+  return [x * 2 for x in arr]
 ```
 
 You probably found the second snippet more readable. We're operating at the same
