@@ -38,7 +38,7 @@
       (@ (class "home"))
       (h1 "Welcome!")
       (p (@ (id "home-intro"))
-         "I'm Dominic, a student and developer aligning how we program with how we think.")
+         "I'm Dominic, a developer aligning how we program with how we think.")
       ,(link "→ more about me" "/about.html")
 
       ,@(post-section "thoughts" "Thoughts" "Haphazard attempts to solidify my ideas" thoughts)
