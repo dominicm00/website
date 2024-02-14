@@ -67,6 +67,7 @@
 
 (define-public thought-posts (tag-filter-generator "thought"))
 (define-public rambling-posts (tag-filter-generator "rambling"))
+(define-public draft-posts (tag-filter-generator "draft"))
 
 (define (post-has-tag post tag)
   (member tag (post-ref post 'tags)))

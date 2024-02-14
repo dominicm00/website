@@ -20,15 +20,27 @@
 
 (define %collections
   `(("Thoughts" "thoughts.html" ,thought-posts)
-    ("Ramblings" "ramblings.html" ,rambling-posts)))
+    ("Ramblings" "ramblings.html" ,rambling-posts)
+    ("Drafts" "drafts.html" ,draft-posts)))
 
 (define %ignored-extensions
   '(".license"))
+
+(define %ignored-post-tags
+  '("draft"))
 
 (define (ignore-file-predicate filename)
   (not (any (lambda (extension)
               (string-suffix? extension filename))
             %ignored-extensions)))
+
+(define (post-filter posts)
+  (define (ignore-post-predicate post)
+    (not (any (lambda (tag)
+                (post-has-tag post tag))
+              %ignored-post-tags)))
+
+  (posts/reverse-chronological (filter ignore-post-predicate posts)))
 
 (site #:title "Dominic's Website"
       #:domain "dominicm.dev"
@@ -41,7 +53,7 @@
       (list
        static-pages
        (blog #:theme blog-theme #:collections %collections)
-       (atom-feed)
+       (atom-feed #:filter post-filter)
        (atom-feeds-by-tag)
        (static-directory "assets")
        (static-directory "css")

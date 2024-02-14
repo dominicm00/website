@@ -58,9 +58,12 @@
         (a (@ (href "/") (id "home-link"))
            (img (@ (src "/assets/images/profile-picture-128.png")
                    (alt "Home"))))
-        ,(link "About me" "/about.html")
-        ,(link "Thoughts" "/thoughts.html")
-        ,(link "Ramblings" "/ramblings.html")))
+        (div (@ (id "nav-link-container"))
+             ,(link "About me" "/about.html")
+             ,(link "Thoughts" "/thoughts.html")
+             ,(link "Ramblings" "/ramblings.html")
+             ,(link "Drafts" "/drafts.html"))
+        ))
 
       ,body
 

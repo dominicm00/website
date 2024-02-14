@@ -84,6 +84,12 @@ header > nav {
   align-items: center;
 }
 
+nav > #nav-link-container {
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+
 nav:nth-child(2) {
   grid-column-start: 2;
 }
@@ -92,17 +98,20 @@ nav > #home-link {
   padding-left: 0;
   margin-left: 0;
   height: auto;
+  flex-shrink: 0;
 }
 
 nav > #home-link > img {
   width: 40px;
 }
 
-header > nav > a,
-header > nav > a:visited {
+header > nav a,
+header > nav a:visited {
   border: none;
   font-size: 1.25rem;
   text-decoration: solid underline;
+  white-space: nowrap;
+  padding: 0.1rem 0.3rem;
 }
 
 /* Home page */
