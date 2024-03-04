@@ -1,8 +1,8 @@
 title: Technology sucks. Why?
 summary: Exploring the psychological, sociological, and technical reasons for the failure of technology
 slug: why-does-technology-suck
-date: 2024-3-1 12:00
-tags: draft
+date: 2024-3-4 14:27
+tags: thought
 ---
 
 I live and breath technology. I program for work and for fun. I play games,
@@ -99,8 +99,49 @@ to obtain.
 Putting effort into developing a better piece of software is important, but our
 systems are not supporting it at scale.
 
-### Mistakes are cheap
+### Mistakes are cheap (until they aren't)
+Mistakes in software are among the cheapest to fix. You don't have to do a
+product recall or change manufacturing; you just push out an update. As a
+result, you don't generally need to take as much care when developing software.
+A fix is always a rollback away.
 
-### Our tools suck
+That is, *if* the mistake is a bug.
 
-###
+A bug is relatively obvious; the program is not doing what it's supposed to. But
+we make other mistakes too. We may architect a program incorrectly, not
+anticipate a future use case, or simply make tradeoffs that were reasonable at
+the time but cause issues later down the road.
+
+These mistakes usually don't rear their head for years or decades, and once they
+do they are extremely hard to remove. It's why Windows is still compatible with
+DOS, why memory safety vulnerabilities are so prevalent, and why the mainstream
+way to create a cross-platform application is to embed it in its own
+mini-operating system (i.e. a web browser).
+
+Software builds on software in a way that's extremely costly to change, possibly
+even more than in manufacturing. This is a dire enough problem on its own, but
+combined with the apparent cheapness of fixing software, we are lulled into a
+false sense of complacency with lackadaisical software development. Costly
+mistakes are introduced at a rate that's not feasible to deal with continuously,
+and so the demon of tech debt begins to rear its head.
+
+### We live in a society
+And finally, sometimes building good software just isn't the goal. Almost all
+software we use is commercial, and the end goal is to extract value. If a
+crappier product makes more money, then the crappier product *will* win in a
+commercial setting. Software also has powerful monopolistic properties that
+means it can be cheaper to just force people to keep using your product rather
+than fixing it.
+
+This topic deserves its own blog post, but needless to say, if making really
+good software is hard (and it is), companies will find ways to make money from
+software without focusing on quality.
+
+
+## Part three: So what do we do?
+¯\\\_(ツ)\_/¯
+
+In all seriousness, this post is mostly just a rant. I believe we can fix these
+issues, and I'm actively developing tools that I think will get us part of the
+way there. But we need, as an industry, to focus more on the fundamental aspects
+of coding than the next new shiny.
