@@ -8,3 +8,7 @@ Source: dominicm.dev
 # Files: src/*
 # Copyright: $YEAR $NAME <$CONTACT>
 # License: ...
+
+Files: posts/*
+Copyright: 2024 Dominic Martinez <dom@dominicm.dev>
+License: CC-BY-SA-4.0
