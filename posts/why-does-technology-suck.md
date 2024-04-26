@@ -28,12 +28,10 @@ about companies with thousands of crazy smart, talented, full-time engineers who
 are struggling to make something good.
 
 Why are we stuck with a few pieces of good software and a frustratingly bad
-majority? Large hardware engineering projects like planes, infrastructure, or
-even electronics don't seem to have the same problems. The industry is certainly
-paying enough to attract necessary talent. It's not like software companies are
-uniquely bad at making things either; the worst part of pretty much any modern
-car is generally the infotainment system! It seems to just be software itself
-that's the issue. Why?
+majority? The industry is certainly paying enough to attract necessary talent.
+It's not like software companies are uniquely bad at making things either; the
+worst part of pretty much any modern car is generally the infotainment system!
+It seems to just be software itself that's the issue. Why?
 
 
 ## Part two: What went wrong?
@@ -56,16 +54,16 @@ carefully reading a codebase.
 
 This abstractness makes code much more opaque. We use abstractions to solidify
 this opacity in logical places, but in a company setting it's very easy to
-create a poor, undocumented, or incorrect abstractions. Fundamentally, software
+create poor, undocumented, or incorrect abstractions. Fundamentally, software
 engineers are operating with less information and a poorer understanding of
 their work.
 
 Complex, abstract work isn't limited to software engineering. I think a lot of
-similarity can be drawn between a math paper and a piece of software. Both have
-"hard" bugs, where an oversight leads to a result that's just plain wrong. Both
-are abstract, and take a significant amount of time to audit and understand.
-Where software engineering becomes unique is in its scale, both in the amount of
-code and the number of people working on it at once.
+similarity can be drawn between a mathematical paper and a piece of software.
+Both have "hard" bugs, where an oversight leads to a result that's just plain
+wrong. Both are abstract, and take a significant amount of time to audit and
+understand. Where software engineering becomes unique is in its scale, both in
+the amount of code and the number of people working on it at once.
 
 ### Software is relatively unconstrained
 There's a ton of constraints when building physical objects. Every new part
@@ -80,21 +78,25 @@ running costs of the software itself that extra complexity and inefficiencies
 are easy to justify. Technically, any part of a piece of software can interact
 with any other piece.
 
-This does give developers freedom, but also means software tends to be complex
-and interconnected. In tandem with it's abstract nature, large pieces of
-software are extremely fragile and difficult to understand.
+This freedom is one of the strengths of software! It's how we can iterate
+quickly, and have such creativity. But it also means that, left to grow
+organically, software becomes overly complex and interconnected. In tandem with
+its abstract nature, large pieces of software are fragile and
+difficult to understand.
 
 ### Best practices aren't enough
 In a perfect world, we have best practices and architectures to deal with the
-above issues.
+above issues. With enough work and thought, we can create clean and maintainable
+software.
 
 The world is, suprise, rarely perfect.
 
-Discipline does not beat incentives. Even engineers with the best of intentions
-will make mistakes, and over time as best practices become more difficult to
-maintain discipline will erode. As the system becomes more complex, the
-understanding needed to develop an intelligent architecture also becomes harder
-to obtain.
+Discipline does not beat incentives. Engineers with the best of intentions will
+make mistakes, and over time as best practices become more difficult to maintain
+discipline will erode. Even if each individual change is well-designed, their
+sum will eventually corrode the quality of the code. As the system becomes more
+complex, the understanding needed to develop an intelligent architecture also
+becomes harder to obtain.
 
 Putting effort into developing a better piece of software is important, but our
 systems are not supporting it at scale.
@@ -116,7 +118,7 @@ These mistakes usually don't rear their head for years or decades, and once they
 do they are extremely hard to remove. It's why Windows is still compatible with
 DOS, why memory safety vulnerabilities are so prevalent, and why the mainstream
 way to create a cross-platform application is to embed it in its own
-mini-operating system (i.e. a web browser).
+mini-operating system (read: a web browser).
 
 Software builds on software in a way that's extremely costly to change, possibly
 even more than in manufacturing. This is a dire enough problem on its own, but
