@@ -15,6 +15,7 @@
   #:use-module (haunt reader)
   #:use-module (ice-9 match)
   #:use-module (ice-9 curried-definitions)
+  #:use-module (ice-9 exceptions)
   #:use-module (ice-9 popen)
   #:use-module (ice-9 textual-ports))
 
@@ -30,9 +31,9 @@
     (if success `(p (html-literal ,html))
         (raise-exception
          (make-exception-with-message
-          (string-append "Failed to parse latex\n"
+          (string-append "Failed to parse latex: "
                          latex
-                         "With error:\n"
+                         "; With error: "
                          html))))))
 
 (define-public (post-process-sxml sxml)
