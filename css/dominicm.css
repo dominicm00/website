@@ -87,7 +87,7 @@ header > nav {
 nav > #nav-link-container {
   display: flex;
   align-items: center;
-  overflow: scroll;
+  overflow-x: auto;
 }
 
 nav:nth-child(2) {

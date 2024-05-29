@@ -8,7 +8,7 @@ Software companies are obsessed with measuring their products. They measure
 every single click, hover, and engagement. They run controlled studies to
 determine if a new feature is significantly (in the statistical sense) better.
 Immense effort is put in to ensure that every single aspect of a product is
-measured in known.
+measured and known.
 
 We need to stop.
 
