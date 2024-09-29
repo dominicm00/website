@@ -61,7 +61,7 @@
         (div (@ (id "nav-link-container"))
              ,(link "About me" "/about.html")
              ,(link "Thoughts" "/thoughts.html")
-             ,(link "Ramblings" "/ramblings.html")
+             ;; ,(link "Ramblings" "/ramblings.html")
              ,(link "Drafts" "/drafts.html"))
         ))
 
