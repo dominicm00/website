@@ -33,9 +33,9 @@ Feel free to chat with me over any contact method below!")
       (h2 "Contact me")
       (ul
        (li (a (@ (rel "me") (href "mailto:dom@dominicm.dev")) "dom@dominicm.dev"))
-       (li (a (@ (rel "me") (href "https://alpha.polymaths.social/@dominicm")) "Fediverse"))
+       (li (a (@ (rel "me") (href "https://polymaths.social/@dominicm")) "Fediverse"))
        (li (a (@ (rel "me") (href "https://www.linkedin.com/in/dominicm00")) "LinkedIn"))
        (li ,(link "PGP key" "https://meta.sr.ht/~dominicm.pgp")))
 
-      (p "If Signal, Discord, or some other not easily shareable method of communication
-is your preference, shoot me an email and we can coordinate contact info there.")))))
+      (p "If Signal, Discord, or some other method of communication is your
+ preference, shoot me an email and we can coordinate contact info there.")))))
