@@ -2,10 +2,13 @@ title: Going beyond the REPL
 summary: Improving the UX of interactive programming
 date: 2023-11-11 12:05
 tags: thought
+
 ---
 
 > # inline info
+>
 > ## Disclaimer
+>
 > This post is currently rambles a bit. I'll try and make it more concise.
 
 REPL-driven development has
@@ -16,16 +19,20 @@ programmers, but has failed to go mainstream. Can we find a better approach to
 interactive development?
 
 ## The problems with REPLs
+
 ### Separation of the REPL and code
+
 REPL-driven development generally involves testing expressions in a REPL, and
 then transferring them to code when completed. The state of your REPL and code
 are completely disconnected. Some common issues here are:
+
 - Changing a function in code and forgetting to change it in the REPL
 - Using a variable with different values in the code vs the REPL
 - Using a function or variable that no longer exists in the code
 - Needing to emulate the state of the program at the point an expression is run
 
 ### Ephemeral knowledge
+
 Exploratory development via a REPL can be incredibly empowering. Rather than
 guessing-and-checking via print statements, you can interactively test any
 expression.
@@ -41,12 +48,14 @@ same context. Code written without a REPL is clearer to the reader by necessity,
 because the information the developer and reader are working are more similar.
 
 ## What about debuggers?
+
 Debuggers are great, but they don't replace REPLs. Testing an arbitrary
 expression requires writing it, re-running the entire program to a breakpoint,
 and then inspecting the value. This is too slow for REPL-driven development; we
 need to incrementally update the program state.
 
 ## What about computational notebooks?
+
 [Computational notebooks](https://en.wikipedia.org/wiki/Notebook_interface) have
 gained mainstream support, primarily due to their REPL-like structure.
 Unfortunately, they are generally single-file programs meant to run
@@ -54,7 +63,8 @@ interactively, and are too narrow in scope for a general programming technique.
 Computational notebooks do, however, hint at the direction we need to go.
 
 ## The idea
-Regardless of what language you're in, there's always *some* way to inspect an
+
+Regardless of what language you're in, there's always _some_ way to inspect an
 expression. The problem is not can we test an expression, but how fast we can do
 so. REPLs test small expressions quickly, but introduce a friction boundary
 between the REPL and code. Can we test small changes directly in the code,
@@ -97,6 +107,7 @@ Learning by example is a powerful tool, and seeing concrete instances of any
 value lets readers think less abstractly about code.
 
 ### Hijacking unit tests
+
 ![An example function with the values of all intermediate expressions shown on screen based on a unit test](/assets/images/going-beyond-the-repl/live-expression-example.png)
 
 We can use unit tests to run our desired function. Not only does give the reader
@@ -104,6 +115,7 @@ documented examples to introspect, but it also encourages developing unit tests
 in parallel with function development.
 
 ### Loops & recursion
+
 If our function has recursion (or loops which can be expressed as recursion), an
 expression can be run multiple times in a single call. How do we let the user
 explore all different usages?
@@ -127,26 +139,30 @@ factorial 0 -- 2
 ```
 
 In pathological cases where complete storage is too expensive, we can still:
+
 1. Explore a single branch of recursion rather than the entire tree, which is
    guaranteed to be as cheap as the function call
 2. If the input range of the expression is small, wrap it in an anonymous
    function and observe all the times it is called
 
 ### Retrofitting existing languages
+
 We can inefficiently implement this in any functional language with a REPL via
 code transformation. Adding wrappers around the tested function and expressions
 makes it easy to track their values and arguments.
 
 ```haskell
 factorial x = x * factorial (x - 1)
-=> factorial x = memoize 
+=> factorial x = memoize
 		(Memo {args=[x], value=x * factorial (x - 1)})
 ```
+
 But this requires re-running the entire function on change! A key feature of
 REPLs and computational notebooks is running an expensive expression once, and
 then re-using it. Can we do this automatically?
 
 ### Taking advantage of purely functional code
+
 If we know parts of our code are purely functional, then yes! Let's look at a
 simplified model of function design to see why.
 
@@ -183,7 +199,8 @@ expression. This is potentially much more efficient than running a test case
 from scratch.
 
 ## Parting thoughts
+
 For decades, our solution to fundamental challenges with programming has been
 "make a new language". This is important, but I think we have neglected
-innovating how we *interface* with code. Going beyond the REPL is just one step
+innovating how we _interface_ with code. Going beyond the REPL is just one step
 in improving our programming methodologies.

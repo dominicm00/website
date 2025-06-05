@@ -218,8 +218,8 @@ hr {
 
 /* Mermaid diagram styling */
 #mermaid-svg {
-    margin: auto;
-    border-radius: 2px;
+  margin: auto;
+  border-radius: 2px;
 }
 
 /* Syntax Highlighting */

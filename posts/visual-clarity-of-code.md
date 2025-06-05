@@ -2,11 +2,13 @@ title: Visual clarity of code
 summary: The importance of syntax to code readability
 date: 2022-12-13 12:00
 tags: thought
+
 ---
 
-> # inline info 
-> ## Disclaimer 
-> 
+> # inline info
+>
+> ## Disclaimer
+>
 > This post is old and in need of review. Yet another box on my to-do list that
 > I will _definitely_ get to.
 
@@ -48,6 +50,7 @@ Let's look at a more extreme example:
 
 Fundamentally, these two snippets represent the same operation at the same
 level of abstraction. Yet the mathematical notation visually communicates that:
+
 1. We're doing math
 2. We're performing an integral from a to b
 3. We have a fraction with an exponential term over a constant
@@ -61,10 +64,11 @@ be unfamiliar with something like integration and be left without even a
 function name to look up.
 
 ## Climbing the curve
+
 The Lisp snippet has a much lower barrier to entry. As long as you know Lisp
 syntax (which is famously simple enough to fit on a business card), you can see
 what function is applied to what variables/numbers. And if you're lost as to
-what `integrate` or `exp` do, you can look it up pretty easily. 
+what `integrate` or `exp` do, you can look it up pretty easily.
 
 On the other hand, getting a complete picture of the equation in Lisp is
 difficult. If you can read the mathematical equation, you probably find that
@@ -81,6 +85,7 @@ non-textual and doesn't use other visual demarcations like whitespace, a
 massive amount of memorization is necessary.
 
 > # caption
+>
 > ```
 > life ← {⊃1 ⍵ ∨.∧ 3 4 = +/ +⌿ ¯1 0 1 ∘.⊖ ¯1 0 1 ⌽¨ ⊂⍵}
 > ```
@@ -103,6 +108,7 @@ So let's take a look at the practical challenges of visual programming
 representation and how we might approach them.
 
 ## Dealing with the domain
+
 It's not very hard/impossible to have the necessary visual patterns in a
 general purpose language out of the box. Common patterns vary between domain,
 specific application, and even subapplications. Users need to be able to create
@@ -120,6 +126,7 @@ knowledge fields; if it takes a week to learn the application syntax, we can
 basically kiss open-source contributions goodbye. We need another solution.
 
 ## Multiple representations
+
 Putting a layer of indirection between the canonical program representation and
 what the user sees is not unheard of; it's what every
 [WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) editor does. In programming,
@@ -135,6 +142,7 @@ This is similar in spirit to the gradual programming model of
 different, and switching program representations should accomodate that.
 
 ## Language support
+
 The previous section hints about how we would get this to actually work. Even
 with custom syntax, there's a canonical AST that can be used by tooling. There's
 even prior work here; [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
@@ -143,6 +151,7 @@ provides language-independent syntax higlighting, and
 on top of that AST.
 
 ## So what?
+
 Ok, say you're not convinced that we need better visualizations of code.
 What does all this work get us?
 
@@ -169,12 +178,14 @@ support. All we're missing is the ability to visualize our new constructs in
 readable ways.
 
 ## Wrapping up
+
 Hopefully this post gave you some new insights. This space is massive, and
 there's probably a lot of research material out there I'm not aware of. I've
 included some further reading below; if there's something cool I'm missing let
 me know and I'll add it in!
 
 ## Further reading
+
 - [Stop writing dead programs](https://jackrusher.com/strange-loop-2022/): A wonderful
   talk by Jack Rusher that goes into syntax and visual program representation,
   among other topics.

@@ -3,6 +3,7 @@ summary: Exploring the psychological, sociological, and technical reasons for th
 slug: why-does-technology-suck
 date: 2024-3-4 14:27
 tags: thought
+
 ---
 
 I live and breath technology. I program for work and for fun. I play games,
@@ -13,6 +14,7 @@ possibilities, quickly becoming something we rely on every day.
 It's also a piece of f\*\*\*ing shit.
 
 ## Part one: I'm not being melodramatic, I swear
+
 I am admittedly a bit biased due to my intimate connection to technology, but I
 think the tech industry is failing in ways not seen in other industries. I
 encounter significant bugs in major pieces of software like Google Maps,
@@ -33,14 +35,17 @@ It's not like software companies are uniquely bad at making things either; the
 worst part of pretty much any modern car is generally the infotainment system!
 It seems to just be software itself that's the issue. Why?
 
-
 ## Part two: What went wrong?
+
 > # inline info
+>
 > ## Disclaimer
+>
 > Everything here is my personal opinion, with no real research backing it up.
 > Take this with the appropriate dose of salt.
 
 ### Software is abstract
+
 Unlike in mechanical engineering where the product is a physical object,
 software is abstract. I believe this is actually a major barrier to creating
 software at scale.
@@ -66,6 +71,7 @@ understand. Where software engineering becomes unique is in its scale, both in
 the amount of code and the number of people working on it at once.
 
 ### Software is relatively unconstrained
+
 There's a ton of constraints when building physical objects. Every new part
 costs money up front and per-unit, so there's a very strong incentive to
 minimize complexity and use pre-existing parts. And of course, the design itself
@@ -85,6 +91,7 @@ its abstract nature, large pieces of software are fragile and
 difficult to understand.
 
 ### Best practices aren't enough
+
 In a perfect world, we have best practices and architectures to deal with the
 above issues. With enough work and thought, we can create clean and maintainable
 software.
@@ -102,12 +109,13 @@ Putting effort into developing a better piece of software is important, but our
 systems are not supporting it at scale.
 
 ### Mistakes are cheap (until they aren't)
+
 Mistakes in software are among the cheapest to fix. You don't have to do a
 product recall or change manufacturing; you just push out an update. As a
 result, you don't generally need to take as much care when developing software.
 A fix is always a rollback away.
 
-That is, *if* the mistake is a bug.
+That is, _if_ the mistake is a bug.
 
 A bug is relatively obvious; the program is not doing what it's supposed to. But
 we make other mistakes too. We may architect a program incorrectly, not
@@ -128,9 +136,10 @@ mistakes are introduced at a rate that's not feasible to deal with continuously,
 and so the demon of tech debt begins to rear its head.
 
 ### We live in a society
+
 And finally, sometimes building good software just isn't the goal. Almost all
 software we use is commercial, and the end goal is to extract value. If a
-crappier product makes more money, then the crappier product *will* win in a
+crappier product makes more money, then the crappier product _will_ win in a
 commercial setting. Software also has powerful monopolistic properties that
 means it can be cheaper to just force people to keep using your product rather
 than fixing it.
@@ -139,8 +148,8 @@ This topic deserves its own blog post, but needless to say, if making really
 good software is hard (and it is), companies will find ways to make money from
 software without focusing on quality.
 
-
 ## Part three: So what do we do?
+
 ¯\\\_(ツ)\_/¯
 
 In all seriousness, this post is mostly just a rant. I believe we can fix these
