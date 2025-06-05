@@ -2,7 +2,6 @@ title: Going beyond the REPL
 summary: Improving the UX of interactive programming
 date: 2023-11-11 12:05
 tags: thought
-
 ---
 
 > # inline info

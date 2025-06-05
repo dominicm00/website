@@ -2,7 +2,6 @@ title: Convenience is a bad goal
 summary: When we strive for convenience, we often make things worse
 date: 2023-10-13 12:07
 tags: thought
-
 ---
 
 > # inline info

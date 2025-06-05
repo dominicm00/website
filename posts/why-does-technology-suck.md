@@ -3,7 +3,6 @@ summary: Exploring the psychological, sociological, and technical reasons for th
 slug: why-does-technology-suck
 date: 2024-3-4 14:27
 tags: thought
-
 ---
 
 I live and breath technology. I program for work and for fun. I play games,

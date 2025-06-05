@@ -222,6 +222,16 @@ hr {
   border-radius: 2px;
 }
 
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  #mermaid-svg {
+    /* Yes this is horrific, but somehow mermaid doesn't support proper dynamic styling
+     * https://github.com/mermaid-js/mermaid/issues/2644
+     * I hate the JS ecosystem man... */
+    filter: invert(0.95);
+  }
+}
+
 /* Syntax Highlighting */
 pre code,
 pre code * {

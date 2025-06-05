@@ -2,7 +2,6 @@ title: Visual clarity of code
 summary: The importance of syntax to code readability
 date: 2022-12-13 12:00
 tags: thought
-
 ---
 
 > # inline info

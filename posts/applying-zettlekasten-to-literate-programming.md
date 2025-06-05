@@ -2,7 +2,6 @@ title: Applying Zettlekasten to literate programming
 summary: Moving away from hierarchical code organization
 date: 2025-06-04 12:00
 tags: draft
-
 ---
 
 As any programmer will tell you, code organization is paramount for any

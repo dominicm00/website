@@ -42,7 +42,12 @@
       ;; Very annoyingly, the open-pipe* API doesn't allow you to separately
       ;; close the WRITE pipe, and then the READ pipe. Since Mermaid expects
       ;; the entire input at once, we need to close the WRITE pipe first.
-      (pipeline '(("npx" "mmdc" "-e" "svg" "-I" "mermaid-svg" "--input" "-" "--output" "-")))
+      (pipeline '(("npx" "mmdc"
+                   "-b" "transparent"
+                   "-e" "svg"
+                   "-I" "mermaid-svg"
+                   "--input" "-"
+                   "--output" "-")))
     (display mermaid to)
     (close to)
     (let* ((html (get-string-all from))
