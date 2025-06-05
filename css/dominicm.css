@@ -216,8 +216,13 @@ hr {
   margin: 2rem auto;
 }
 
-/* Syntax Highlighting */
+/* Mermaid diagram styling */
+#mermaid-svg {
+    margin: auto;
+    border-radius: 2px;
+}
 
+/* Syntax Highlighting */
 pre code,
 pre code * {
   font-family: monospace, monospace;

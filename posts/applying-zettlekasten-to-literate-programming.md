@@ -1,6 +1,6 @@
 title: Applying Zettlekasten to literate programming
 summary: Moving away from hierarchical code organization
-date: 2023-11-13 12:00
+date: 2025-06-04 12:00
 tags: draft
 ---
 
@@ -17,6 +17,13 @@ to implement, leveraging the filesystem for most of the work. But how does it
 work in practice?
 
 **TODO** tree diagram indicating how node only uses children
+
+```mermaid
+graph TD
+    A --> B
+    A --> C
+```
+
 
 ## The sibling dilemma
 Essentially every project has code used across multiple modules. Reuse is the

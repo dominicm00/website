@@ -14,6 +14,7 @@
   #:use-module (haunt post)
   #:use-module (haunt reader)
   #:use-module (ice-9 match)
+  #:use-module (ice-9 receive)
   #:use-module (ice-9 curried-definitions)
   #:use-module (ice-9 exceptions)
   #:use-module (ice-9 popen)
@@ -36,6 +37,28 @@
                          "; With error: "
                          html))))))
 
+(define-public (convert-mermaid mermaid)
+  (receive (from to pids)
+      ;; Very annoyingly, the open-pipe* API doesn't allow you to separately
+      ;; close the WRITE pipe, and then the READ pipe. Since Mermaid expects
+      ;; the entire input at once, we need to close the WRITE pipe first.
+      (pipeline '(("npx" "mmdc" "-e" "svg" "-I" "mermaid-svg" "--input" "-" "--output" "-")))
+    (display mermaid to)
+    (close to)
+    (let* ((html (get-string-all from))
+           (_ (close from))
+           ;; Because the pipeline API doesn't make it straightforward to get
+           ;; the status code, check if an SVG was output from the command.
+           (success (string-prefix? "<svg" html)))
+      (if success `(p (html-literal ,html))
+        (raise-exception
+         (make-exception-with-message
+          (string-append "Failed to parse mermaid: "
+                         latex
+                         "; With error: "
+                         html)))))))
+
+
 (define-public (post-process-sxml sxml)
   (define ((highlighter lexer language) code)
     `(pre (code (@ (class ,language))
@@ -52,6 +75,7 @@
       ("language-asm" (highlighter lex-assembly language))
       ("language-python" (highlighter lex-python language))
       ("language-latex" convert-latex)
+      ("language-mermaid" convert-mermaid)
       (_ plain-code-block)))
 
   (map (match-lambda

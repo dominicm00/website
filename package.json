@@ -2,6 +2,8 @@
   "author": "Dominic Martinez <dom@dominicm.dev>",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "katex": "^0.16.9"
+    "@mermaid-js/mermaid-cli": "^11.4.2",
+    "katex": "^0.16.9",
+    "prettier": "^3.5.3"
   }
 }
