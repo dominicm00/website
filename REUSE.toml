@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "dominic-website"
+SPDX-PackageSupplier = "Dominic Martinez <dom@dominicm.dev>"
+SPDX-PackageDownloadLocation = "dominicm.dev"
+
+[[annotations]]
+path = "posts/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025 Dominic Martinez <dom@dominicm.dev>"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
