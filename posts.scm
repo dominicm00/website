@@ -83,22 +83,24 @@
       ("language-mermaid" convert-mermaid)
       (_ plain-code-block)))
 
-  (map (match-lambda
-         ;; Highlight supported code blocks
-         (`(pre (code (@ (class ,language)) ,code))
-          ((code-processor language) code))
+  (define process-block
+    (match-lambda
+      ;; Highlight supported code blocks
+      (`(pre (code (@ (class ,language)) ,code))
+       ((code-processor language) code))
 
-         ;; Support captions
-         (`(blockquote (h1 "caption") ,fig . ,caption)
-          `(figure ,fig (figcaption ,caption)))
+      ;; Support captions
+      (`(blockquote (h1 "caption") ,fig . ,caption)
+       `(figure ,(process-block fig) (figcaption ,caption)))
 
-         ;; Support callout blocks
-         (`(blockquote (h1 ,class) . ,content)
-          `(aside (@ (class ,class)) ,content))
+      ;; Support callout blocks
+      (`(blockquote (h1 ,class) . ,content)
+       `(aside (@ (class ,class)) ,content))
 
-         ;; Pass other objects through unchanged
-         (x x))
-       sxml))
+      ;; Pass other objects through unchanged
+      (x x)))
+
+  (map process-block sxml))
 
 (define-public modified-commonmark-reader
   (make-reader (make-file-extension-matcher "md")
