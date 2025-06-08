@@ -59,7 +59,7 @@
         (raise-exception
          (make-exception-with-message
           (string-append "Failed to parse mermaid: "
-                         latex
+                         mermaid
                          "; With error: "
                          html)))))))
 
