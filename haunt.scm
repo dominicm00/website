@@ -11,6 +11,8 @@
              (haunt builder blog)
              (haunt builder atom)
 
+             (haunt publisher sourcehut)
+
              (srfi srfi-1)
 
              (builder)
@@ -49,6 +51,7 @@
         (email  . "dom@dominicm.dev"))
       #:file-filter ignore-file-predicate
       #:readers (list modified-commonmark-reader)
+      #:publishers (list (sourcehut-publisher))
       #:builders
       (list
        static-pages

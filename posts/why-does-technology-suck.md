@@ -5,12 +5,12 @@ date: 2024-3-4 14:27
 tags: thought
 ---
 
-I live and breath technology. I program for work and for fun. I play games,
+I live and breathe technology. I program for work and for fun. I play games,
 watch shows, and spend time with friends all on my computer. Technology is an
 incredible innovation that has unlocked a range of new activities and
 possibilities, quickly becoming something we rely on every day.
 
-It's also a piece of f\*\*\*ing shit.
+It also sucks just so, so much.
 
 ## Part one: I'm not being melodramatic, I swear
 
@@ -95,14 +95,14 @@ In a perfect world, we have best practices and architectures to deal with the
 above issues. With enough work and thought, we can create clean and maintainable
 software.
 
-The world is, suprise, rarely perfect.
+The world is, surprise, rarely perfect.
 
-Discipline does not beat incentives. Engineers with the best of intentions will
-make mistakes, and over time as best practices become more difficult to maintain
-discipline will erode. Even if each individual change is well-designed, their
-sum will eventually corrode the quality of the code. As the system becomes more
-complex, the understanding needed to develop an intelligent architecture also
-becomes harder to obtain.
+Discipline rarely beats out structural incentives. Engineers with the best of
+intentions will make mistakes, and over time as best practices become more
+difficult to maintain discipline will erode. Even if each individual change is
+well-designed, their sum will eventually corrode the quality of the code. As the
+system becomes more complex, the understanding needed to develop an intelligent
+architecture also becomes harder to obtain.
 
 Putting effort into developing a better piece of software is important, but our
 systems are not supporting it at scale.
@@ -151,7 +151,13 @@ software without focusing on quality.
 
 ¯\\\_(ツ)\_/¯
 
-In all seriousness, this post is mostly just a rant. I believe we can fix these
-issues, and I'm actively developing tools that I think will get us part of the
-way there. But we need, as an industry, to focus more on the fundamental aspects
-of coding than the next new shiny.
+In all seriousness, while partially technical, this is one of those annoyingly
+intractable "human" problems (ew). It is very difficult move the mountains that
+are large tech corporations in a meaningful way.
+
+If you work somewhere that you feel is falling into this trap of bad software,
+the best thing you can do is act like it's an important issue every step of the
+way. Be curious, talk to people, and figure out how to break down silos. Dogfood
+the product, give feedback, and make sure things actually get fixed. Be loud
+about why quality is important in ways that maybe aren't immediately obvious on
+an A/B test. Make it a product problem, not an engineering wishlist.

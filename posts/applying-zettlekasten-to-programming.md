@@ -1,4 +1,4 @@
-title: Applying Zettlekasten to literate programming
+title: Applying Zettlekasten to programming
 summary: Moving away from hierarchical code organization
 date: 2025-06-08 12:00
 tags: thought
@@ -7,11 +7,10 @@ tags: thought
 As any programmer will tell you, code organization is paramount for any
 non-trivial project. When our code grows too big for a single file, we split it
 up into multiple ones. When we have too many files, we put them into folders.
-When we have too many folders, we put them in _more_ folders ad infinitum. Where
-code is placed in this hierarchy greatly influences a project's overall
-structure.
+When we have too many folders, we put them in _more_ folders ad infinitum. This
+hierarchy strongly shapes a project's structure and maintainability.
 
-This tree hierarchy feels quite natural. It conceptually fits with abstraction,
+Tree hierarchies feel quite natural. They conceptually fits with abstraction,
 where parent modules abstract the capabilities of their children. It's also easy
 to implement, leveraging the filesystem for most of the work. But how does it
 work in practice?
@@ -71,7 +70,7 @@ I hope it's also clear that patterns like `public _myPrivateFunction` and `if (<
 
 This is surprisingly similar to our requirements for programming! We have a series of atomic nodes (functions) that can arbitrarily link to each other. Instead of code living in a single location, its purpose is organically derived from how it's used and documented.
 
-We actually somewhat follow this pattern today with monorepos! We divide code up into small, encapsulated packages that arbitrarily depend on each other. This idea is an extension of that to all code, further reducing the overhead of manual organization.
+We actually somewhat follow this pattern today! Monorepos encapsulate code in packages with flexible dependencies, hinting at a node-based approach. This idea is an extension of that to all code, further reducing the overhead of manual organization.
 
 The key for this to work is a good user interface that lets you have dynamic "views" of code, such as:
 
