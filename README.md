@@ -27,3 +27,11 @@ You can then use any [Haunt](https://files.dthompson.us/docs/haunt/latest/index.
 ```shell
 haunt build && haunt serve --watch
 ```
+
+## Publishing
+
+This site is published on [sourcehut pages](https://srht.site/) using Haunt's built-in sourcehut publisher.
+
+```shell
+haunt build && haunt publish
+```
