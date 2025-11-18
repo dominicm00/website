@@ -8,13 +8,13 @@ tags: thought
 >
 > ## Disclaimer
 >
-> This post is currently rambles a bit. I'll try and make it more concise.
+> This post is currently rambling a bit. I'll try and make it more concise.
 
 REPL-driven development has
 [long](https://mikelevins.github.io/posts/2020-12-18-repl-driven/)
 [been](https://web.archive.org/web/20110112075449/http://programming-musings.org/2006/01/14/the-joy-of-repl)
 [lauded](http://blog.jayfields.com/2014/01/repl-driven-development.html) by Lisp
-programmers, but has failed to go mainstream. Can we find a better approach to
+programmers, but has failed to go mainstream. Can we design a better approach to
 interactive development?
 
 ## The problems with REPLs
@@ -43,14 +43,16 @@ your REPL window…it all disappears. We just throw it away.
 By giving the developer powerful introspection abilities but not the reader,
 REPLs create a rift in understanding. Questions that are trivially answered in
 the developer's state of mind are lost to the reader because they don't have the
-same context. Code written without a REPL is clearer to the reader by necessity,
-because the information the developer and reader are working are more similar.
+same context.
+
+Code written without a REPL is clearer to the reader by necessity, because the
+information the developer and reader are working with is more similar.
 
 ## What about debuggers?
 
 Debuggers are great, but they don't replace REPLs. Testing an arbitrary
-expression requires writing it, re-running the entire program to a breakpoint,
-and then inspecting the value. This is too slow for REPL-driven development; we
+expression requires writing it and re-running the entire program to a breakpoint.
+You then inspect the value. This is too slow for REPL-driven development; we
 need to incrementally update the program state.
 
 ## What about computational notebooks?
@@ -58,8 +60,9 @@ need to incrementally update the program state.
 [Computational notebooks](https://en.wikipedia.org/wiki/Notebook_interface) have
 gained mainstream support, primarily due to their REPL-like structure.
 Unfortunately, they are generally single-file programs meant to run
-interactively, and are too narrow in scope for a general programming technique.
-Computational notebooks do, however, hint at the direction we need to go.
+interactively, and are too narrow in scope to serve as a general-purpose
+programming technique. Computational notebooks do, however, hint at the
+direction we need to go.
 
 ## The idea
 
@@ -105,11 +108,11 @@ As a reader, this is a powerful tool for exploring an unfamiliar codebase.
 Learning by example is a powerful tool, and seeing concrete instances of any
 value lets readers think less abstractly about code.
 
-### Hijacking unit tests
+### Leveraging unit tests
 
 ![An example function with the values of all intermediate expressions shown on screen based on a unit test](/assets/images/going-beyond-the-repl/live-expression-example.png)
 
-We can use unit tests to run our desired function. Not only does give the reader
+We can use unit tests to run our desired function. Not only does this give the reader
 documented examples to introspect, but it also encourages developing unit tests
 in parallel with function development.
 

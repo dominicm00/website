@@ -57,10 +57,10 @@ level of abstraction. Yet the mathematical notation visually communicates that:
 
 Teasing this information out of the Lisp program takes a lot more effort.
 
-Except, well, _I lied_. At least a little bit. Sure, you can technically grasp
-all that information quicker from the mathematical notation, but you could also
-be unfamiliar with something like integration and be left without even a
-function name to look up.
+Except, well, you actually might not have understood the mathematical notation
+at all! Sure, you can technically grasp all that information quicker from the
+mathematical notation, but you could also be unfamiliar with something like
+integration and be left without even a function name to look up.
 
 ## Climbing the curve
 
@@ -79,7 +79,7 @@ but also increases the learning curve—especially for reading code.
 This is (in my opinion) one reason why many find Lisp and APL difficult to
 use despite them being such powerful languages. In Lisp, everything has exactly
 one visual form, rendering visual processing of the code very difficult. APL's
-symbols make it easier to scan for operations, but because it's almost entirely
+symbols make it easier to scan for operations, but because it is almost entirely
 non-textual and doesn't use other visual demarcations like whitespace, a
 massive amount of memorization is necessary.
 
@@ -89,13 +89,13 @@ massive amount of memorization is necessary.
 > life ← {⊃1 ⍵ ∨.∧ 3 4 = +/ +⌿ ¯1 0 1 ∘.⊖ ¯1 0 1 ⌽¨ ⊂⍵}
 > ```
 >
-> An [APL implementation](https://aplwiki.com/wiki/Conway%27s_Game_of_Life")
-> of Conway's game of life. Impressive stuff—for the people who understand it.
+> An [APL implementation](https://aplwiki.com/wiki/Conway%27s_Game_of_Life)
+> of Conway's Game of Life. Impressive stuff—for the people who understand it.
 
 Figuring out how to create programs that are both visual and readable is
 important. Math and engineering rely heavily on symbols and visualizations for a
 reason; the human brain is an incredibly efficient visual processor, which we neglect
-when we adopt a single syntax for every problem domain. In general purpose
+when we adopt a single syntax for every problem domain. In general-purpose
 languages, all code devolves into a series of functions and control statements,
 regardless of the code's meaning.
 
@@ -108,18 +108,19 @@ representation and how we might approach them.
 
 ## Dealing with the domain
 
-It's not very hard/impossible to have the necessary visual patterns in a
-general purpose language out of the box. Common patterns vary between domain,
-specific application, and even subapplications. Users need to be able to create
-their own syntax to express their architecture.
+It's very difficult—perhaps impossible—to have the necessary visual patterns in a
+general-purpose language out of the box. Common patterns vary between domains,
+specific applications, and even sub-applications. Users need to be able to
+create their own syntax to express their architecture.
 
-Lisp does the functionality part of this pretty well, but due to its limited
-syntax misses out on visual clarity. Other languages do some form of this, but
-I've not found a language that's truly flexible in terms of program syntax yet.
+Lisp does the functionality part of this pretty well, but it misses out on
+visual clarity due to its limited syntax. Other languages do some form of this,
+but I've not found a language that's truly flexible in terms of program syntax
+yet.
 
-But there's good reason even macro-focused languages don't venture here.
-Even ignoring techinical challenges like parsing, how would we make such a
-language readable to people outside the domain? Due to the wide applicability of
+But there's good reason even macro-focused languages don't venture here. Even
+ignoring technical challenges like parsing, how would we make such a language
+readable to people outside the domain? Due to the wide applicability of
 programming, programmers shift between domains more often than in many other
 knowledge fields; if it takes a week to learn the application syntax, we can
 basically kiss open-source contributions goodbye. We need another solution.
@@ -133,25 +134,25 @@ projects like [Enso](https://enso.org/), [Smalltalk](https://squeak.org/), or
 even syntax highlighting act as middlemen between the literal program file and
 what shows up on the screen. Using indirection, we can modify what people see to
 align with their experience level. A symbolic language like APL could show
-textual versions of it's operations, or a textual data science language could
-show a boxes-and-lines style visual representation.
+textual versions of its operations, or a textual data science language could
+show a boxes-and-lines-style visual representation.
 
 This is similar in spirit to the gradual programming model of
 [Hedy](https://hedy-beta.herokuapp.com/). The needs of beginners and experts are
-different, and switching program representations should accomodate that.
+different, and switching program representations should accommodate that.
 
 ## Language support
 
-The previous section hints about how we would get this to actually work. Even
-with custom syntax, there's a canonical AST that can be used by tooling. There's
-even prior work here; [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
-provides language-independent syntax higlighting, and
+The previous section hints at how this could actually work. Even with custom
+syntax, there's a canonical AST that can be used by tooling. There's even prior
+work here: [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) provides
+language-independent syntax higlighting, and
 [Tree-edit](https://github.com/ethan-leba/tree-edit) provides structural editing
 on top of that AST.
 
 ## So what?
 
-Ok, say you're not convinced that we need better visualizations of code.
+OK, say you're not convinced that we need better visualizations of code.
 What does all this work get us?
 
 As is often the case when indirection is introduced, a whole lot.
@@ -162,14 +163,15 @@ you allowed one-way transformations? You probably don't care what AST your
 programming language uses under the hood, so what if they just used the same
 one?
 
-Everytime we start a new language, we start at almost a blank slate. Debugging,
+Every time we start a new language, we start at almost a blank slate. Debugging,
 editing, profiling, introspection, toolkits, package management; every language
 rebuilds these ideas all over again. Hell, nowadays these tend to be the killer
 features of new languages. We should be able to focus on the language syntax and
 features—the _representation_ of the language—separately from the tooling.
 
-Having this separation makes it much easier to develop small, easy to reason
-about DSLs instead of hammering everything into general purpose languages.
+Having this separation makes it much easier to develop small,
+easy-to-reason-about DSLs instead of hammering everything into general-purpose
+languages.
 
 We already have this functionality in highly programmable languages like Lisps.
 It's how we can get powerful features like pattern matching without compiler

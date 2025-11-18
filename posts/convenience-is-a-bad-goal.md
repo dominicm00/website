@@ -19,12 +19,12 @@ tags: thought
 > I have more thinking and research to do on this topic, but I'm publishing this
 > post because I think it's still an important part of design to consider.
 
-Everyone likes convenience. In fact, we like it so much that many of our day to
-day decisions are primarily influenced by it. However, just because something is
-convenient, doesn't mean it's good—or even enjoyable!
+Everyone likes convenience. We like it so much that many of our day-to-day
+decisions revolve around it. But just because something is convenient doesn't
+mean it's good—or even enjoyable!
 
-Convenience can be a useful tool, in that if we make _good_ things convenient
-(e.g. public transport) we can encourage people to use them. However, modern
+Convenience can be a useful tool: when we make _good_ things convenient (e.g.
+public transport), we encourage people to use them. However, modern
 society often enables unhealthy forms of convenience.
 
 ## Abstracting cost
@@ -32,10 +32,10 @@ society often enables unhealthy forms of convenience.
 Convenience, and particularly technological convenience, is used to hide real
 costs. When you order delivery you no longer interact with the restaurant or
 delivery driver. When you buy on Amazon you no longer interact with a store and
-cashier. Business externalities are purposely hidden from you so that they don't
-factor into your mental calculus. Abstracting away the costs involved in
-business and reducing everything to a monetary exchange robs individuals of
-agency and importance.
+cashier. Businesses intentionally hide these externalities so they don't factor
+into your mental calculus. Abstracting away the costs involved in business and
+reducing everything to a monetary exchange robs individuals of agency and
+importance.
 
 ## Consumerism
 
@@ -44,16 +44,16 @@ things is relatively recent. We used to be able to fix products, or continue to
 reuse them for a long time. However, given a design trade-off between
 convenience and sustainability we almost universally choose convenience.
 
-Think of how much waste is involved in every purchase you make. Every wrapper
-from the grocery store, box from buying online, etc. Convenience has both
-increased the waste of individual purchases, and increased the amount that we
-buy.
+Think of every wrapper from the grocery store and every box from an online
+purchase. Convenience has increased both the waste of each purchase and how much
+we buy.
 
 ## Discomfort is important
 
-Convenience is a result of our avoidant tendencies. We use convenience to avoid
-discomfort, but many discomforts are normal, and healthy, to experience.
+Convenience often caters to our avoidant tendencies: we use it to dodge
+discomfort, even when that discomfort is normal and healthy.
 
 If you are forced to confront the reality of where your food and products come
 from, to interact with someone, or to see what other people are going through,
-_that is a good thing_. Avoiding discomfort is not worth also avoiding truth.
+_that is a good thing_. Avoiding discomfort is never worth avoiding the truth
+that comes with it.

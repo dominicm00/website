@@ -10,23 +10,23 @@ watch shows, and spend time with friends all on my computer. Technology is an
 incredible innovation that has unlocked a range of new activities and
 possibilities, quickly becoming something we rely on every day.
 
-It also sucks just so, so much.
+It's also, in many ways, a giant piece of crap.
 
 ## Part one: I'm not being melodramatic, I swear
 
 I am admittedly a bit biased due to my intimate connection to technology, but I
-think the tech industry is failing in ways not seen in other industries. I
+think the tech industry is failing in ways I don't see in other industries. I
 encounter significant bugs in major pieces of software like Google Maps,
-Android, or Windows on a daily basis. Many large tech companies are debugging
-and patching multiple user-facing issues per-day. Software is regularly
-abandoned or completely rewritten due to tech debt. Upgrades seem to make things
-slower and less usable rather than the opposite.
+Android, or Windows on a daily basis, and many large tech companies debug and
+patch multiple user-facing issues per day. Software is regularly abandoned or
+completely rewritten due to tech debt, and upgrades often make things slower and
+less usable rather than the opposite.
 
-I am not focusing on your average small-business website made by the lowest
-bidder. Those are admittedly bad, and I think there's ways we can improve them,
-but low quality in projects like that is common across industries. I'm talking
-about companies with thousands of crazy smart, talented, full-time engineers who
-are struggling to make something good.
+I'm not talking about the typical small-business website made on a tight budget.
+Those are admittedly bad, and there are ways we can improve them, but low
+quality in projects like that is common across industries. I'm talking about
+companies with thousands of crazy smart, talented, full-time engineers who are
+struggling to make something good.
 
 Why are we stuck with a few pieces of good software and a frustratingly bad
 majority? The industry is certainly paying enough to attract necessary talent.
@@ -53,7 +53,7 @@ Humans have evolved to be masters of visual pattern recognition, and the
 physicality of mechanical engineering provides a source of truth for what you're
 creating. Where is each part? What parts are interacting? Where are likely
 failure points? How does the system work at a high level? It's orders of
-magnitude quicker to get this information from a 3d model of a part versus
+magnitude quicker to get this information from a 3D model of a part versus
 carefully reading a codebase.
 
 This abstractness makes code much more opaque. We use abstractions to solidify
@@ -84,7 +84,7 @@ are easy to justify. Technically, any part of a piece of software can interact
 with any other piece.
 
 This freedom is one of the strengths of software! It's how we can iterate
-quickly, and have such creativity. But it also means that, left to grow
+quickly and have such creativity. But it also means that, left to grow
 organically, software becomes overly complex and interconnected. In tandem with
 its abstract nature, large pieces of software are fragile and
 difficult to understand.
@@ -95,14 +95,13 @@ In a perfect world, we have best practices and architectures to deal with the
 above issues. With enough work and thought, we can create clean and maintainable
 software.
 
-The world is, surprise, rarely perfect.
-
-Discipline rarely beats out structural incentives. Engineers with the best of
-intentions will make mistakes, and over time as best practices become more
-difficult to maintain discipline will erode. Even if each individual change is
-well-designed, their sum will eventually corrode the quality of the code. As the
-system becomes more complex, the understanding needed to develop an intelligent
-architecture also becomes harder to obtain.
+The world is, surprise, rarely perfect, and discipline rarely beats out
+structural incentives. Engineers with the best of intentions will make mistakes,
+and over time as best practices become more difficult to maintain, discipline
+will erode. Even if each individual change is well-designed, their sum will
+eventually corrode the quality of the code. As the system becomes more complex,
+the understanding needed to develop an intelligent architecture also becomes
+harder to obtain.
 
 Putting effort into developing a better piece of software is important, but our
 systems are not supporting it at scale.
@@ -122,7 +121,7 @@ anticipate a future use case, or simply make tradeoffs that were reasonable at
 the time but cause issues later down the road.
 
 These mistakes usually don't rear their head for years or decades, and once they
-do they are extremely hard to remove. It's why Windows is still compatible with
+do, they are extremely hard to remove. It's why Windows is still compatible with
 DOS, why memory safety vulnerabilities are so prevalent, and why the mainstream
 way to create a cross-platform application is to embed it in its own
 mini-operating system (read: a web browser).
@@ -132,16 +131,17 @@ even more than in manufacturing. This is a dire enough problem on its own, but
 combined with the apparent cheapness of fixing software, we are lulled into a
 false sense of complacency with lackadaisical software development. Costly
 mistakes are introduced at a rate that's not feasible to deal with continuously,
-and so the demon of tech debt begins to rear its head.
+and so the spectre of tech debt begins to haunt the files until someone takes a
+flamethrower to the whole thing.
 
 ### We live in a society
 
 And finally, sometimes building good software just isn't the goal. Almost all
 software we use is commercial, and the end goal is to extract value. If a
 crappier product makes more money, then the crappier product _will_ win in a
-commercial setting. Software also has powerful monopolistic properties that
-means it can be cheaper to just force people to keep using your product rather
-than fixing it.
+commercial setting. Software also has powerful monopolistic properties that mean
+it can be cheaper to just force people to keep using your product rather than
+fixing it.
 
 This topic deserves its own blog post, but needless to say, if making really
 good software is hard (and it is), companies will find ways to make money from
@@ -151,9 +151,9 @@ software without focusing on quality.
 
 ¯\\\_(ツ)\_/¯
 
-In all seriousness, while partially technical, this is one of those annoyingly
-intractable "human" problems (ew). It is very difficult move the mountains that
-are large tech corporations in a meaningful way.
+Underneath the technical details, this is mostly one of those annoyingly
+intractable "human" problems (ew). It’s very difficult to move the mountains
+that are large tech corporations in a meaningful way.
 
 If you work somewhere that you feel is falling into this trap of bad software,
 the best thing you can do is act like it's an important issue every step of the
