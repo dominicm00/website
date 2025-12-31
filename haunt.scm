@@ -11,7 +11,7 @@
              (haunt builder blog)
              (haunt builder atom)
 
-             (haunt publisher sourcehut)
+             (haunt publisher rsync)
 
              (srfi srfi-1)
 
@@ -51,7 +51,11 @@
         (email  . "dom@dominicm.dev"))
       #:file-filter ignore-file-predicate
       #:readers (list modified-commonmark-reader)
-      #:publishers (list (sourcehut-publisher))
+      #:publishers 
+      (list (rsync-publisher
+              #:name 'production
+              #:destination "~/www/dominicm.dev"
+              #:host "dominicm.dev"))
       #:builders
       (list
        static-pages
