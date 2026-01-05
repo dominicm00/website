@@ -8,6 +8,7 @@ const latex_string = process.argv[2];
 const options = {
   displayMode: true,
   strict: true,
+  trust: true,
 };
 
 const html = katex.renderToString(latex_string, options);
