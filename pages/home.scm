@@ -21,7 +21,7 @@
 
         ,@(if (> (length posts) section-limit)
               `(,(link
-                  (string-append "→ see all " name)
+                  (string-append "see all " name)
                   (string-append "/" name ".html")))
               '())
         )))
@@ -39,7 +39,7 @@
       (h1 "Welcome!")
       (p (@ (id "home-intro"))
          "I'm Dominic, a developer aligning how we program with how we think.")
-      ,(link "→ more about me" "/about.html")
+      ,(link "more about me" "/about.html")
 
       ,@(post-section "thoughts" "Thoughts" "Haphazard attempts to solidify my ideas" thoughts)
       ,@(post-section "ramblings" "Ramblings" "A shout into the void" ramblings)

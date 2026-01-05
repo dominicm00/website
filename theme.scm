@@ -58,9 +58,9 @@
         (a (@ (href "/") (id "home-link"))
            (img (@ (src "/assets/images/profile-picture-128.png")
                    (alt "Home"))))
-        (div (@ (id "nav-link-container"))
-             ,(link "About me" "/about.html")
-             ,(link "Thoughts" "/thoughts.html"))
+        (ul (@ (id "nav-link-container"))
+            (li ,(link "About me" "/about.html"))
+            (li ,(link "Thoughts" "/thoughts.html")))
         ))
 
       ,body
@@ -72,7 +72,7 @@
         ", "
         ,(link "Simple.css" "https://simplecss.org/")
         " - "
-        ,(link "Source code" "https://sr.ht/~dominicm/website")
+        ,(link "Source code" "https://github.com/dominicm00/website")
         " - "
         ,(link "RSS feed" "/feed.xml")))))))
 
